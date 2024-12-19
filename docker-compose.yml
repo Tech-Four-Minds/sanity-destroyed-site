@@ -1,0 +1,19 @@
+services:
+  web:
+    container_name: site-sd
+    build: ./web
+    volumes:
+      - site-sd-volume:/var/www/html
+
+  nginx:
+    container_name: nginx-site-sd
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    volumes:
+      - site-sd-volume:/var/www/html
+
+volumes:
+  site-sd-volume:
