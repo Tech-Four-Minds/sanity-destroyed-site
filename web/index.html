@@ -1,74 +1,125 @@
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Bootstrap + npm</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanity Destroyed</title>
 
-        <link rel="stylesheet" href="dist/assets/css/styles.css">
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit">Search</button>
-                        </form>
-                    </div>
+    <link rel="stylesheet" href="dist/assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+        <nav class="d-flex justify-content-evenly align-items-center p-3">
+            <a href="#">Agenda</a>
+            <a href="#">Banda</a>
+            <a href="#">Músicas</a>
+            <a href="/"><img src="./dist/assets/images/logo.png" alt="logo"></a>
+            <a href="#">Novidades</a>
+            <a href="#">Mídias</a>
+            <a href="#">Loja</a>
+        </nav>
+    </header>
+    <!-- header -->
+     <main>
+        <section>
+            <h1>AGENDA</h1>
+            <div>
+                <div>
+                    <ul>
+                        <li><strong>Evento:</strong> Festa do Rock</li>
+                        <li><strong>Local:</strong> Parque Dona Lindu</li>
+                        <li><strong>Data:</strong> 22/02/2020</li>
+                        <li><strong>Horário:</strong> 22:00</li>
+                        <li><strong>Entrada:</strong> R$50,00</li>
+                        <li><strong>Bilheteria:</strong> ingressos.com Shopping Guararapes (Nagem)</li>
+                    </ul>
                 </div>
-            </nav>
-      </header>
-      <main>
-        <section class="container d-flex justify-content-center mt-5">
-            <button type="button" class="btn btn-primary m-2">Primary</button>
-            <button type="button" class="btn btn-secondary m-2">Secondary</button>
-            <button type="button" class="btn btn-success m-2">Success</button>
-            <button type="button" class="btn btn-danger m-2">Danger</button>
-            <button type="button" class="btn btn-warning m-2">Warning</button>
-            <button type="button" class="btn btn-info m-2">Info</button>
-            <button type="button" class="btn btn-light m-2">Light</button>
-            <button type="button" class="btn btn-dark m-2">Dark</button>
+                <!-- Descrição do Evento -->
+
+                <div>
+                    <img src="./dist/assets/images/post.png" alt="cartaz">
+                </div>
+                <!-- Cartaz -->
+            </div>
+            <!-- Container side left-->
+            <div>
+                <div>
+                    <h2>Finados Rock</h2>
+                    <p>02/11/2024</p>
+                </div>
+                <div>
+                    <h2>Finados Rock</h2>
+                    <p>02/11/2024</p>
+                </div>
+                <div>
+                    <h2>Finados Rock</h2>
+                    <p>02/11/2024</p>
+                </div>
+                <!--Cards-->
+            </div>
+            <!-- Container side right-->
         </section>
-        <section class="container text-center mt-5">
-                 <div class="alert alert-primary" role="alert">
-                    A simple primary alert—check it out!
-                </div>
-                <div class="alert alert-secondary" role="alert">
-                    A simple secondary alert—check it out!
-                </div>
-                <div class="alert alert-success" role="alert">
-                    A simple success alert—check it out!
-                </div>
-                <div class="alert alert-danger" role="alert">
-                    A simple danger alert—check it out!
-                </div>
-                <div class="alert alert-warning" role="alert">
-                    A simple warning alert—check it out!
-                </div>
-                <div class="alert alert-info" role="alert">
-                    A simple info alert—check it out!
-                </div>
-                <div class="alert alert-dark" role="alert">
-                    A simple dark alert—check it out!
-                </div>
-        </section>
-      </main>
-    </body>
+        <!-- SECTION - AGENDA-->
+         <section>
+            <h1>NOTÍCIA</h1>
+
+            <div>
+                <img src="./dist/assets/images/photo-1.png" alt="photo 1">
+                <p>17 de dezembro de 2024</p>
+                <p>Sanity Destroyed processa site metal archives!</p>
+            </div>
+            <div>
+                <img src="./dist/assets/images/photo-2.png" alt="photo 2">
+                <p>17 de dezembro de 2024</p>
+                <p>make off do clip</p>
+            </div>
+            <div>
+                <img src="./dist/assets/images/photo-1.png" alt="photo 1">
+                <p>17 de dezembro de 2024</p>
+                <p>Sanity Destroyed processa site metal archives!</p>
+            </div>
+            <!-- Cards -->
+         </section>
+         <!-- SECTION - Noticias -->
+
+         <section>
+            <div>
+                <div><img src="./dist/assets/images/produto.png" alt="produto"></div>
+                <!-- container images  -->
+                <p>Camiseta Sanity</p>
+                <div><p>desconto 50% off</p></div> 
+                <p>de <span>R$ 500</span></p>
+                <p>R$ 250,00</p>
+            </div>
+            <div>
+                <div><img src="./dist/assets/images/produto.png" alt="produto"></div>
+                <!-- container images  -->
+                <p>Camiseta Sanity</p>
+                <div><p>desconto 50% off</p></div> 
+                <p>de <span>R$ 500</span></p>
+                <p>R$ 250,00</p>
+            </div>
+            <div>
+                <div><img src="./dist/assets/images/produto.png" alt="produto"></div>
+                <!-- container images  -->
+                <p>Camiseta Sanity</p>
+                <div><p>desconto 50% off</p></div> 
+                <p>de <span>R$ 500</span></p>
+                <p>R$ 250,00</p>
+            </div>
+            <!-- CARDS -->
+         </section>
+         <!-- SECTION - Loja -->
+     </main>
+     <!-- main -->
+      <footer>
+        <div>
+            <a href="#"><img src="./dist/assets/icons/facebook-footer.svg" alt="facebook-icon"></a>
+            <a href="#"><img src="./dist/assets/icons/headphones-footer.svg" alt="headphones-icon"></a>
+            <a href="#"><img src="./dist/assets/icons/instagram-footer.svg" alt="instagram-icon"></a>
+            <a href="#"><img src="./dist/assets/icons/youtube-footer.svg" alt="youtube-icon"></a>
+        </div>
+        <p>Fourminds Tech ©</p>
+      </footer>
+  </body>
 </html>
