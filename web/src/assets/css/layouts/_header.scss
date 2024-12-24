@@ -5,6 +5,7 @@
   font-weight: bold;
   transition: color 0.3s ease;
 
+  &.active,
   &:hover {
     color: $primary;
   }
@@ -20,6 +21,7 @@
     transition: width 0.3s ease;
   }
 
+  &.active::after,
   &:hover::after {
     width: 100%;
   }
