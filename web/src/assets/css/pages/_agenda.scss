@@ -1,5 +1,16 @@
-.background-agenda{
-    background-image: url("../../../../dist/assets/images/background-agenda.png");   
+.background-header{
+    background-image: url("/web/dist/assets/images/background-home.png");
     background-repeat: no-repeat;
-    height: 1080px;
+    background-size: cover;
+}
+
+.background-agenda{
+    background-image: url("/web/dist/assets/images/background-agenda.png");
+    background-size: cover;
+    height: 100vh;
+}
+
+.text-agenda{
+    color: $light;
+    text-shadow: 1px 3px $dark;
 }
