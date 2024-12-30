@@ -1,4 +1,11 @@
 @import "./abstracts/fonts";
 @import "./abstracts/variables";
 
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./layouts/section";
+
+@import "./pages/home";
+@import "./pages/agenda";
+
 @import "../../../node_modules/bootstrap/scss/bootstrap";
