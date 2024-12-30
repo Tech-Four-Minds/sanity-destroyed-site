@@ -8,6 +8,8 @@ RUN rm -rf node_modules
 
 RUN npm install
 
+RUN rm -rf /dist/assets/css
+
 RUN npm run build-css
 
 RUN mkdir -p /var/www/html
