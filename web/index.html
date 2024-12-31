@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -5,132 +6,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanity Destroyed</title>
 
+    <!-- Estilos -->
     <link rel="stylesheet" href="dist/assets/css/styles.css" />
   </head>
   <body class="background-home">
-    <header class="container">
-<<<<<<< HEAD
-        <nav class="d-flex justify-content-evenly align-items-center p-3">
-            <a href="./dist/pages/agenda.html">Agenda</a>
-            <a href="#">Banda</a>
-            <a href="#">Músicas</a>
-            <a href="/"><img src="./dist/assets/images/logo.png" alt="logo"></a>
-            <a href="#">Novidades</a>
-            <a href="#">Mídias</a>
-            <a href="#">Loja</a>
-=======
-        <nav class="d-flex justify-content-around align-items-center p-5">
-            <a class="link" href="./dist/pages/agenda.html">Agenda</a>
-            <a class="link" href="#">Banda</a>
-            <a class="link" href="#">Músicas</a>
-            <a href="/"><img  class="img-fluid" src="./dist/assets/images/logo.png" alt="logo"></a>
-            <a class="link" href="#">Novidades</a>
-            <a class="link" href="#">Mídias</a>
-            <a class="link" href="#">Loja</a>
->>>>>>> 970f77aedb7617a439df49f64951cd7471f01c7c
-        </nav>
+    <header>
+      <nav
+        class="container d-flex justify-content-around align-items-center py-3"
+      >
+        <a class="link" href="dist/pages/agenda.html">Agenda</a>
+        <a class="link" href="#">Banda</a>
+        <a class="link" href="#">Músicas</a>
+        <a href="/">
+          <img
+            class="img-fluid"
+            src="./dist/assets/images/logo.png"
+            alt="logo"
+          />
+        </a>
+        <a class="link" href="#">Novidades</a>
+        <a class="link" href="#">Mídias</a>
+        <a class="link" href="#">Loja</a>
+      </nav>
     </header>
-    <!-- header -->
-     <main class="container">
-         <section class="bg-dark">
-            <h1 class="text-light text-center">AGENDA</h1>
-            <div class="d-flex">
-                <div>
-                    <ul>
-                        <li><strong>Evento:</strong> Festa do Rock</li>
-                        <li><strong>Local:</strong> Parque Dona Lindu</li>
-                        <li><strong>Data:</strong> 22/02/2020</li>
-                        <li><strong>Horário:</strong> 22:00</li>
-                        <li><strong>Entrada:</strong> R$50,00</li>
-                        <li><strong>Bilheteria:</strong> ingressos.com Shopping Guararapes (Nagem)</li>
-                    </ul>
-                </div>
-                <!-- Descrição do Evento -->
 
-                <div>
-                    <img src="./dist/assets/images/post.png" alt="cartaz">
-                </div>
-                <!-- Cartaz -->
+    <!-- Conteúdo Principal -->
+    <main>
+      <!-- Seção Agenda -->
+      <section
+        class="container my-5 d-flex flex-column align-items-center justify-content-center"
+      >
+        <div class="bg-dark w-100 text-light p-4 rounded-3">
+          <h1 class="text-center fw-semibold mb-5">AGENDA</h1>
+          <div class="row">
+            <div class="col-md-6">
+              <ul
+                class="list-unstyled fw-semibold fs-4 d-flex flex-column justify-content-center"
+              >
+                <li>
+                  <strong class="text-primary">Evento:</strong> II BROTHERS OF
+                  METAL
+                </li>
+                <li><strong class="text-primary">Local:</strong> Lajedo/PE</li>
+                <li><strong class="text-primary">Data:</strong> 28/12/2024</li>
+                <li><strong class="text-primary">Horário:</strong> 16:00</li>
+              </ul>
             </div>
-            <!-- Container side left-->
-            <div>
-                <div>
-                    <h2>Finados Rock</h2>
-                    <p>02/11/2024</p>
-                </div>
-                <div>
-                    <h2>Finados Rock</h2>
-                    <p>02/11/2024</p>
-                </div>
-                <div>
-                    <h2>Finados Rock</h2>
-                    <p>02/11/2024</p>
-                </div>
-                <!--Cards-->
+            <div
+              class="col-md-6 d-flex align-items-center justify-content-center"
+            >
+              <img
+                class="img-fluid rounded-3"
+                src="./dist/assets/images/post.png"
+                alt="Postagem do Evento"
+              />
             </div>
-            <!-- Container side right-->
-        </section>
-        <!-- SECTION - AGENDA-->
-         <section>
-            <h1>NOTÍCIA</h1>
-
-            <div>
-                <img src="./dist/assets/images/photo-1.png" alt="photo 1">
-                <p>17 de dezembro de 2024</p>
-                <p>Sanity Destroyed processa site metal archives!</p>
-            </div>
-            <div>
-                <img src="./dist/assets/images/photo-2.png" alt="photo 2">
-                <p>17 de dezembro de 2024</p>
-                <p>make off do clip</p>
-            </div>
-            <div>
-                <img src="./dist/assets/images/photo-1.png" alt="photo 1">
-                <p>17 de dezembro de 2024</p>
-                <p>Sanity Destroyed processa site metal archives!</p>
-            </div>
-            <!-- Cards -->
-         </section>
-         <!-- SECTION - Noticias -->
-
-         <section>
-            <div>
-                <div><img src="./dist/assets/images/produto.png" alt="produto"></div>
-                <!-- container images  -->
-                <p>Camiseta Sanity</p>
-                <div><p>desconto 50% off</p></div> 
-                <p>de <span>R$ 500</span></p>
-                <p>R$ 250,00</p>
-            </div>
-            <div>
-                <div><img src="./dist/assets/images/produto.png" alt="produto"></div>
-                <!-- container images  -->
-                <p>Camiseta Sanity</p>
-                <div><p>desconto 50% off</p></div> 
-                <p>de <span>R$ 500</span></p>
-                <p>R$ 250,00</p>
-            </div>
-            <div>
-                <div><img src="./dist/assets/images/produto.png" alt="produto"></div>
-                <!-- container images  -->
-                <p>Camiseta Sanity</p>
-                <div><p>desconto 50% off</p></div> 
-                <p>de <span>R$ 500</span></p>
-                <p>R$ 250,00</p>
-            </div>
-            <!-- CARDS -->
-         </section>
-         <!-- SECTION - Loja -->
-     </main>
-     <!-- main -->
-      <footer class="footer">
-        <div>
-            <a href="#"><img src="./dist/assets/icons/facebook-footer.svg" alt="facebook-icon"></a>
-            <a href="#"><img src="./dist/assets/icons/headphones-footer.svg" alt="headphones-icon"></a>
-            <a href="#"><img src="./dist/assets/icons/instagram-footer.svg" alt="instagram-icon"></a>
-            <a href="#"><img src="./dist/assets/icons/youtube-footer.svg" alt="youtube-icon"></a>
+          </div>
         </div>
-        <p>Fourminds Tech ©</p>
-      </footer>
+      </section>
+
+      <!-- Seção Notícias -->
+      <section
+        class="container d-flex flex-column align-items-start justify-content-center"
+      >
+        <h1 class="text-dark fw-bold mb-4">Notícias</h1>
+        <div class="row">
+          <article class="col-md-4 mb-4">
+            <img
+              class="img-fluid rounded"
+              src="./dist/assets/images/news-1.png"
+              alt="Sanity Destroyed Processa Site Metal Archives!"
+            />
+            <p>17 de Dezembro de 2024</p>
+            <h2 class="fs-5">Sanity Destroyed Processa Site Metal Archives!</h2>
+          </article>
+          <article class="col-md-4 mb-4">
+            <img
+              class="img-fluid rounded"
+              src="./dist/assets/images/news-2.png"
+              alt="Make Off do Clip"
+            />
+            <p>17 de Dezembro de 2024</p>
+            <h2 class="fs-5">Make Off do Clip</h2>
+          </article>
+          <article class="col-md-4 mb-4">
+            <img
+              class="img-fluid rounded"
+              src="./dist/assets/images/news-1.png"
+              alt="Sanity Destroyed Processa Site Metal Archives!"
+            />
+            <p>17 de Dezembro de 2024</p>
+            <h2 class="fs-5">Sanity Destroyed Processa Site Metal Archives!</h2>
+          </article>
+        </div>
+      </section>
+
+      <!-- Seção Loja -->
+      <div class="store">
+        <section class="container">
+          <div
+            class="d-flex justify-content-center align-items-start h-100 flex-column"
+          >
+            <h1 class="my-5 text-dark fw-bold">LOJA</h1>
+            <div class="row g-4 w-100 d-flex justify-content-center align-items-center">
+              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
+                <img
+                  src="./dist/assets/images/produto.png"
+                  class="card-img-top"
+                  alt="Produto"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">CAMISETA</h5>
+                  <p
+                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                  >
+                    DESCONTO 50% OFF
+                  </p>
+                  <p class="text-muted text-decoration-line-through">R$80,00</p>
+                  <p class="fw-bold text-success">R$40,00</p>
+                </div>
+              </div>
+              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
+                <img
+                  src="./dist/assets/images/produto.png"
+                  class="card-img-top"
+                  alt="Produto"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">CAMISETA</h5>
+                  <p
+                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                  >
+                    DESCONTO 50% OFF
+                  </p>
+                  <p class="text-muted text-decoration-line-through">R$80,00</p>
+                  <p class="fw-bold text-success">R$40,00</p>
+                </div>
+              </div>
+              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
+                <img
+                  src="./dist/assets/images/produto.png"
+                  class="card-img-top"
+                  alt="Produto"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">CAMISETA</h5>
+                  <p
+                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                  >
+                    DESCONTO 50% OFF
+                  </p>
+                  <p class="text-muted text-decoration-line-through">R$80,00</p>
+                  <p class="fw-bold text-success">R$40,00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Replicar os cards conforme necessário -->
+        </section>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="py-4 text-center">
+      <div class="d-flex justify-content-center mb-3">
+        <a href="#" class="mx-2">
+          <img
+            src="./dist/assets/icons/facebook-footer.svg"
+            alt="Facebook Icon"
+          />
+        </a>
+        <a href="#" class="mx-2">
+          <img
+            src="./dist/assets/icons/headphones-footer.svg"
+            alt="Headphones Icon"
+          />
+        </a>
+        <a href="#" class="mx-2">
+          <img
+            src="./dist/assets/icons/instagram-footer.svg"
+            alt="Instagram Icon"
+          />
+        </a>
+        <a href="#" class="mx-2">
+          <img
+            src="./dist/assets/icons/youtube-footer.svg"
+            alt="YouTube Icon"
+          />
+        </a>
+      </div>
+      <p>Fourminds Tech ©</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/web/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>

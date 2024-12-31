@@ -1,1 +1,1 @@
-console.log("Olá")
+console.log(process.env?.IMAGE_BASE_URL)

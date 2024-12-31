@@ -1,4 +1,10 @@
 .background-home {
-    background-image: url("../../../../dist/assets/images/background-home.png");
+    background-image: url("/web/dist/assets/images/background-home.png");
     background-repeat: no-repeat;
+}
+
+.store {
+    background-image: url("/web/dist/assets/images/background-store.png");
+    background-repeat: no-repeat;
+    height: 100vh;
 }
