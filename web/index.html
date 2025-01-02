@@ -10,195 +10,266 @@
     <link rel="stylesheet" href="dist/assets/css/styles.css" />
   </head>
   <body class="background-home">
-    <header>
-      <nav
-        class="container d-flex justify-content-around align-items-center py-3"
-      >
-        <a class="link" href="dist/pages/agenda.html">Agenda</a>
-        <a class="link" href="#">Banda</a>
-        <a class="link" href="#">Músicas</a>
-        <a href="/">
-          <img
-            class="img-fluid"
-            src="./dist/assets/images/logo.png"
-            alt="logo"
-          />
-        </a>
-        <a class="link" href="#">Novidades</a>
-        <a class="link" href="#">Mídias</a>
-        <a class="link" href="#">Loja</a>
-      </nav>
-    </header>
-
-    <!-- Conteúdo Principal -->
-    <main>
-      <!-- Seção Agenda -->
-      <section
-        class="container my-5 d-flex flex-column align-items-center justify-content-center"
-      >
-        <div class="bg-dark w-100 text-light p-4 rounded-3">
-          <h1 class="text-center fw-semibold mb-5">AGENDA</h1>
-          <div class="row">
-            <div class="col-md-6">
-              <ul
-                class="list-unstyled fw-semibold fs-4 d-flex flex-column justify-content-center"
-              >
-                <li>
-                  <strong class="text-primary">Evento:</strong> II BROTHERS OF
-                  METAL
-                </li>
-                <li><strong class="text-primary">Local:</strong> Lajedo/PE</li>
-                <li><strong class="text-primary">Data:</strong> 28/12/2024</li>
-                <li><strong class="text-primary">Horário:</strong> 16:00</li>
-              </ul>
-            </div>
+    <div class="container">
+      <div class="row">
+        <header class="col-12 h-25 p-3">
+          <nav>
+            <!-- Navegação para Dispositivos Grandes -->
             <div
-              class="col-md-6 d-flex align-items-center justify-content-center"
+              class="d-none d-lg-flex justify-content-around align-items-center"
             >
-              <img
-                class="img-fluid rounded-3"
-                src="./dist/assets/images/post.png"
-                alt="Postagem do Evento"
-              />
+              <a class="link" href="dist/pages/agenda.html">Agenda</a>
+              <a class="link" href="#">Banda</a>
+              <a class="link" href="#">Músicas</a>
+              <a href="/">
+                <img src="./dist/assets/images/logo.png" alt="logo" />
+              </a>
+              <a class="link" href="#">Novidades</a>
+              <a class="link" href="#">Mídias</a>
+              <a class="link" href="#">Loja</a>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Seção Notícias -->
-      <section
-        class="container d-flex flex-column align-items-start justify-content-center"
-      >
-        <h1 class="text-dark fw-bold mb-4">Notícias</h1>
-        <div class="row">
-          <article class="col-md-4 mb-4">
-            <img
-              class="img-fluid rounded"
-              src="./dist/assets/images/news-1.png"
-              alt="Sanity Destroyed Processa Site Metal Archives!"
-            />
-            <p>17 de Dezembro de 2024</p>
-            <h2 class="fs-5">Sanity Destroyed Processa Site Metal Archives!</h2>
-          </article>
-          <article class="col-md-4 mb-4">
-            <img
-              class="img-fluid rounded"
-              src="./dist/assets/images/news-2.png"
-              alt="Make Off do Clip"
-            />
-            <p>17 de Dezembro de 2024</p>
-            <h2 class="fs-5">Make Off do Clip</h2>
-          </article>
-          <article class="col-md-4 mb-4">
-            <img
-              class="img-fluid rounded"
-              src="./dist/assets/images/news-1.png"
-              alt="Sanity Destroyed Processa Site Metal Archives!"
-            />
-            <p>17 de Dezembro de 2024</p>
-            <h2 class="fs-5">Sanity Destroyed Processa Site Metal Archives!</h2>
-          </article>
-        </div>
-      </section>
+            <!-- Ícone do menu como Dropdown (Móvel) -->
+            <div class="d-lg-none position-relative">
+              <!-- Logo Centralizada (Móvel) -->
+              <div class="text-center mb-3">
+                <a href="/">
+                  <img
+                    src="./dist/assets/images/logo.png"
+                    alt="logo"
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
 
-      <!-- Seção Loja -->
-      <div class="store">
-        <section class="container">
-          <div
-            class="d-flex justify-content-center align-items-start h-100 flex-column"
-          >
-            <h1 class="my-5 text-dark fw-bold">LOJA</h1>
-            <div class="row g-4 w-100 d-flex justify-content-center align-items-center">
-              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
-                <img
-                  src="./dist/assets/images/produto.png"
-                  class="card-img-top"
-                  alt="Produto"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">CAMISETA</h5>
-                  <p
-                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
-                  >
-                    DESCONTO 50% OFF
-                  </p>
-                  <p class="text-muted text-decoration-line-through">R$80,00</p>
-                  <p class="fw-bold text-success">R$40,00</p>
-                </div>
+              <!-- Botão Dropdown -->
+              <div class="dropdown position-absolute top-0 end-0 m-3">
+                <button
+                  class="btn border-0"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    class="img-fluid dropdown-icon"
+                    style="width: 2rem"
+                    src="./dist/assets/icons/menu.svg"
+                    alt="menu"
+                  />
+                </button>
+                <ul
+                  class="dropdown-menu text-center"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <li>
+                    <a class="dropdown-item" href="dist/pages/agenda.html"
+                      >Agenda</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Banda</a></li>
+                  <li><a class="dropdown-item" href="#">Músicas</a></li>
+                  <li><a class="dropdown-item" href="#">Novidades</a></li>
+                  <li><a class="dropdown-item" href="#">Mídias</a></li>
+                  <li><a class="dropdown-item" href="#">Loja</a></li>
+                </ul>
               </div>
-              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
-                <img
-                  src="./dist/assets/images/produto.png"
-                  class="card-img-top"
-                  alt="Produto"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">CAMISETA</h5>
-                  <p
-                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
-                  >
-                    DESCONTO 50% OFF
-                  </p>
-                  <p class="text-muted text-decoration-line-through">R$80,00</p>
-                  <p class="fw-bold text-success">R$40,00</p>
-                </div>
+            </div>
+          </nav>
+        </header>
+      </div>
+
+      <main>
+        <!-- Seção Agenda -->
+        <section
+          class="container my-5 d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="bg-dark w-100 text-light p-4 rounded-3">
+            <h1 class="text-center fw-semibold mb-5">AGENDA</h1>
+            <div class="row">
+              <div class="col-md-6">
+                <ul
+                  class="list-unstyled fw-semibold fs-4 d-flex flex-column justify-content-center"
+                >
+                  <li>
+                    <strong class="text-primary">Evento:</strong> II BROTHERS OF
+                    METAL
+                  </li>
+                  <li>
+                    <strong class="text-primary">Local:</strong> Lajedo/PE
+                  </li>
+                  <li>
+                    <strong class="text-primary">Data:</strong> 28/12/2024
+                  </li>
+                  <li><strong class="text-primary">Horário:</strong> 16:00</li>
+                </ul>
               </div>
-              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
+              <div
+                class="col-md-6 d-flex align-items-center justify-content-center"
+              >
                 <img
-                  src="./dist/assets/images/produto.png"
-                  class="card-img-top"
-                  alt="Produto"
+                  class="img-fluid rounded-3"
+                  src="./dist/assets/images/post.png"
+                  alt="Postagem do Evento"
                 />
-                <div class="card-body">
-                  <h5 class="card-title">CAMISETA</h5>
-                  <p
-                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
-                  >
-                    DESCONTO 50% OFF
-                  </p>
-                  <p class="text-muted text-decoration-line-through">R$80,00</p>
-                  <p class="fw-bold text-success">R$40,00</p>
-                </div>
               </div>
             </div>
           </div>
-          <!-- Replicar os cards conforme necessário -->
         </section>
-      </div>
-    </main>
 
-    <!-- Rodapé -->
-    <footer class="py-4 text-center">
-      <div class="d-flex justify-content-center mb-3">
-        <a href="#" class="mx-2">
-          <img
-            src="./dist/assets/icons/facebook-footer.svg"
-            alt="Facebook Icon"
-          />
-        </a>
-        <a href="#" class="mx-2">
-          <img
-            src="./dist/assets/icons/headphones-footer.svg"
-            alt="Headphones Icon"
-          />
-        </a>
-        <a href="#" class="mx-2">
-          <img
-            src="./dist/assets/icons/instagram-footer.svg"
-            alt="Instagram Icon"
-          />
-        </a>
-        <a href="#" class="mx-2">
-          <img
-            src="./dist/assets/icons/youtube-footer.svg"
-            alt="YouTube Icon"
-          />
-        </a>
-      </div>
-      <p>Fourminds Tech ©</p>
-    </footer>
+        <!-- Seção Notícias -->
+        <section
+          class="container d-flex flex-column align-items-start justify-content-center"
+        >
+          <h1 class="text-dark fw-bold mb-4">Notícias</h1>
+          <div class="row">
+            <article class="col-md-4 mb-4">
+              <img
+                class="img-fluid rounded"
+                src="./dist/assets/images/news-1.png"
+                alt="Sanity Destroyed Processa Site Metal Archives!"
+              />
+              <p>17 de Dezembro de 2024</p>
+              <h2 class="fs-5">
+                Sanity Destroyed Processa Site Metal Archives!
+              </h2>
+            </article>
+            <article class="col-md-4 mb-4">
+              <img
+                class="img-fluid rounded"
+                src="./dist/assets/images/news-2.png"
+                alt="Make Off do Clip"
+              />
+              <p>17 de Dezembro de 2024</p>
+              <h2 class="fs-5">Make Off do Clip</h2>
+            </article>
+            <article class="col-md-4 mb-4">
+              <img
+                class="img-fluid rounded"
+                src="./dist/assets/images/news-1.png"
+                alt="Sanity Destroyed Processa Site Metal Archives!"
+              />
+              <p>17 de Dezembro de 2024</p>
+              <h2 class="fs-5">
+                Sanity Destroyed Processa Site Metal Archives!
+              </h2>
+            </article>
+          </div>
+        </section>
 
-    <!-- Scripts -->
+        <!-- Seção Loja -->
+        <div class="store">
+          <section>
+            <div
+              class="d-flex justify-content-center align-items-start h-100 flex-column"
+            >
+              <h1 class="my-5 text-dark fw-bold">LOJA</h1>
+              <div
+                class="row g-4 w-100 d-flex justify-content-center align-items-center"
+              >
+                <div
+                  class="card mx-3 col-sm-12 col-md-3 mb-4"
+                  style="width: 18rem"
+                >
+                  <img
+                    src="./dist/assets/images/produto.png"
+                    class="card-img-top"
+                    alt="Produto"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">CAMISETA</h5>
+                    <p
+                      class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                    >
+                      DESCONTO 50% OFF
+                    </p>
+                    <p class="text-muted text-decoration-line-through">
+                      R$80,00
+                    </p>
+                    <p class="fw-bold text-success">R$40,00</p>
+                  </div>
+                </div>
+                <div
+                  class="card mx-3 col-sm-12 col-md-3 mb-4"
+                  style="width: 18rem"
+                >
+                  <img
+                    src="./dist/assets/images/produto.png"
+                    class="card-img-top"
+                    alt="Produto"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">CAMISETA</h5>
+                    <p
+                      class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                    >
+                      DESCONTO 50% OFF
+                    </p>
+                    <p class="text-muted text-decoration-line-through">
+                      R$80,00
+                    </p>
+                    <p class="fw-bold text-success">R$40,00</p>
+                  </div>
+                </div>
+                <div
+                  class="card mx-3 col-sm-12 col-md-3 mb-4"
+                  style="width: 18rem"
+                >
+                  <img
+                    src="./dist/assets/images/produto.png"
+                    class="card-img-top"
+                    alt="Produto"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">CAMISETA</h5>
+                    <p
+                      class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                    >
+                      DESCONTO 50% OFF
+                    </p>
+                    <p class="text-muted text-decoration-line-through">
+                      R$80,00
+                    </p>
+                    <p class="fw-bold text-success">R$40,00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Replicar os cards conforme necessário -->
+          </section>
+        </div>
+      </main>
+      <!-- Rodapé -->
+      <footer class="py-4 text-center">
+        <div class="d-flex justify-content-center mb-3">
+          <a href="#" class="mx-2">
+            <img
+              src="./dist/assets/icons/facebook-footer.svg"
+              alt="Facebook Icon"
+            />
+          </a>
+          <a href="#" class="mx-2">
+            <img
+              src="./dist/assets/icons/headphones-footer.svg"
+              alt="Headphones Icon"
+            />
+          </a>
+          <a href="#" class="mx-2">
+            <img
+              src="./dist/assets/icons/instagram-footer.svg"
+              alt="Instagram Icon"
+            />
+          </a>
+          <a href="#" class="mx-2">
+            <img
+              src="./dist/assets/icons/youtube-footer.svg"
+              alt="YouTube Icon"
+            />
+          </a>
+        </div>
+        <p>Fourminds Tech ©</p>
+      </footer>
+    </div>
     <script src="/web/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
