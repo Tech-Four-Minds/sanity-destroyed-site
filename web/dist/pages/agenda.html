@@ -7,29 +7,69 @@
     <title>Agenda</title>
   </head>
   <body>
-    <header class="background-header">
+    <header class="background-header p-3">
       <nav
-        class="container d-flex justify-content-around align-items-center p-3"
+        class="container"
       >
-        <a href="" class="link active">Agenda</a>
+        <!-- Navegação para Dispositivos Grandes -->
+        <div class="d-none d-lg-flex justify-content-around align-items-center">
+          <a class="link" href="/web/dist/pages/agenda.html">Agenda</a>
+          <a class="link" href="#">Banda</a>
+          <a class="link" href="#">Músicas</a>
+          <a href="/web/index.html">
+            <img src="/web/dist/assets/images/logo.png" alt="logo" />
+          </a>
+          <a class="link" href="#">Novidades</a>
+          <a class="link" href="#">Mídias</a>
+          <a class="link" href="#">Loja</a>
+        </div>
 
-        <a href="" class="link">Banda</a>
+        <!-- Ícone do menu como Dropdown (Móvel) -->
+        <div class="d-lg-none position-relative">
+          <!-- Logo Centralizada (Móvel) -->
+          <div class="text-center mb-3">
+            <a href="/">
+              <img
+                src="/web/dist/assets/images/logo.png"
+                alt="logo"
+                class="img-fluid"
+              />
+            </a>
+          </div>
 
-        <a href="" class="link">Musica</a>
-
-        <a href="../../index.html">
-          <img
-            src="../../dist/assets/images/logo.png"
-            alt=""
-            class="img-fluid"
-          />
-        </a>
-
-        <a href="" class="link">Novidades</a>
-
-        <a href="" class="link">Mídia</a>
-
-        <a href="" class="link">Loja</a>
+          <!-- Botão Dropdown -->
+          <div class="dropdown position-absolute top-0 end-0 m-3">
+            <button
+              class="btn border-0"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                class="img-fluid dropdown-icon"
+                style="width: 2rem"
+                src="/web/dist/assets/icons/menu.svg"
+                alt="menu"
+              />
+            </button>
+            <ul
+              class="dropdown-menu text-center"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li>
+                <a class="dropdown-item" href="/web/dist/pages/agenda.html"
+                  >Agenda</a
+                >
+              </li>
+              <li><a class="dropdown-item" href="#">Banda</a></li>
+              <li><a class="dropdown-item" href="#">Músicas</a></li>
+              <li><a class="dropdown-item" href="#">Novidades</a></li>
+              <li><a class="dropdown-item" href="#">Mídias</a></li>
+              <li><a class="dropdown-item" href="#">Loja</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
     <main class="background-agenda p-5 fs-5 text-agenda">
@@ -93,5 +133,6 @@
       </div>
       <p>Fourminds Tech ©</p>
     </footer>
+    <script src="/web/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
