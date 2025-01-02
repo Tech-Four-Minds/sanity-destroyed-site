@@ -10,27 +10,70 @@
     <link rel="stylesheet" href="dist/assets/css/styles.css" />
   </head>
   <body class="background-home">
-    <header>
-      <nav
-        class="container d-flex justify-content-around align-items-center py-3"
-      >
-        <a class="link" href="dist/pages/agenda.html">Agenda</a>
-        <a class="link" href="#">Banda</a>
-        <a class="link" href="#">Músicas</a>
-        <a href="/">
-          <img
-            class="img-fluid"
-            src="./dist/assets/images/logo.png"
-            alt="logo"
-          />
-        </a>
-        <a class="link" href="#">Novidades</a>
-        <a class="link" href="#">Mídias</a>
-        <a class="link" href="#">Loja</a>
+    <header class="container col-12 h-25 p-3">
+      <nav>
+        <!-- Navegação para Dispositivos Grandes -->
+        <div class="d-none d-lg-flex justify-content-around align-items-center">
+          <a class="link" href="dist/pages/agenda.html">Agenda</a>
+          <a class="link" href="#">Banda</a>
+          <a class="link" href="#">Músicas</a>
+          <a href="/">
+            <img src="./dist/assets/images/logo.png" alt="logo" />
+          </a>
+          <a class="link" href="#">Novidades</a>
+          <a class="link" href="#">Mídias</a>
+          <a class="link" href="#">Loja</a>
+        </div>
+
+        <!-- Ícone do menu como Dropdown (Móvel) -->
+        <div class="d-lg-none position-relative">
+          <!-- Logo Centralizada (Móvel) -->
+          <div class="text-center mb-3">
+            <a href="/">
+              <img
+                src="./dist/assets/images/logo.png"
+                alt="logo"
+                class="img-fluid"
+              />
+            </a>
+          </div>
+
+          <!-- Botão Dropdown -->
+          <div class="dropdown position-absolute top-0 end-0 m-3">
+            <button
+              class="btn border-0"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                class="img-fluid dropdown-icon"
+                style="width: 2rem"
+                src="./dist/assets/icons/menu.svg"
+                alt="menu"
+              />
+            </button>
+            <ul
+              class="dropdown-menu text-center"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li>
+                <a class="dropdown-item" href="dist/pages/agenda.html"
+                  >Agenda</a
+                >
+              </li>
+              <li><a class="dropdown-item" href="#">Banda</a></li>
+              <li><a class="dropdown-item" href="#">Músicas</a></li>
+              <li><a class="dropdown-item" href="#">Novidades</a></li>
+              <li><a class="dropdown-item" href="#">Mídias</a></li>
+              <li><a class="dropdown-item" href="#">Loja</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main>
       <!-- Seção Agenda -->
       <section
@@ -102,67 +145,186 @@
       </section>
 
       <!-- Seção Loja -->
-      <div class="store">
+      <div class="store vh-100">
         <section class="container">
           <div
             class="d-flex justify-content-center align-items-start h-100 flex-column"
           >
-            <h1 class="my-5 text-dark fw-bold">LOJA</h1>
-            <div class="row g-4 w-100 d-flex justify-content-center align-items-center">
-              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
-                <img
-                  src="./dist/assets/images/produto.png"
-                  class="card-img-top"
-                  alt="Produto"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">CAMISETA</h5>
-                  <p
-                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
-                  >
-                    DESCONTO 50% OFF
-                  </p>
-                  <p class="text-muted text-decoration-line-through">R$80,00</p>
-                  <p class="fw-bold text-success">R$40,00</p>
+            <h1 class="my-5 text-dark fw-bold text-center">LOJA</h1>
+            <div
+              id="storeCarousel"
+              class="carousel slide w-100"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <!-- Primeiro Slide -->
+                <div class="carousel-item active">
+                  <div class="row d-flex justify-content-center">
+                    <div
+                      class="card mx-3 col-12 col-sm-12 col-lg-4"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="./dist/assets/images/produto.png"
+                        class="card-img-top"
+                        alt="Produto"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">CAMISETA</h5>
+                        <p
+                          class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                        >
+                          DESCONTO 50% OFF
+                        </p>
+                        <p class="text-muted text-decoration-line-through">
+                          R$80,00
+                        </p>
+                        <p class="fw-bold text-success">R$40,00</p>
+                      </div>
+                    </div>
+                    <div
+                      class="card mx-3 col-12 col-sm-12 col-lg-4 d-none d-lg-block"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="./dist/assets/images/produto.png"
+                        class="card-img-top"
+                        alt="Produto"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">CAMISETA</h5>
+                        <p
+                          class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                        >
+                          DESCONTO 50% OFF
+                        </p>
+                        <p class="text-muted text-decoration-line-through">
+                          R$80,00
+                        </p>
+                        <p class="fw-bold text-success">R$40,00</p>
+                      </div>
+                    </div>
+                    <div
+                      class="card mx-3 col-12 col-sm-12 col-lg-4 d-none d-lg-block"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="./dist/assets/images/produto.png"
+                        class="card-img-top"
+                        alt="Produto"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">CAMISETA</h5>
+                        <p
+                          class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                        >
+                          DESCONTO 50% OFF
+                        </p>
+                        <p class="text-muted text-decoration-line-through">
+                          R$80,00
+                        </p>
+                        <p class="fw-bold text-success">R$40,00</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row d-flex justify-content-center">
+                    <div
+                      class="card mx-3 col-12 col-sm-12 col-lg-4"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="./dist/assets/images/produto.png"
+                        class="card-img-top"
+                        alt="Produto"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">CAMISETA</h5>
+                        <p
+                          class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                        >
+                          DESCONTO 50% OFF
+                        </p>
+                        <p class="text-muted text-decoration-line-through">
+                          R$80,00
+                        </p>
+                        <p class="fw-bold text-success">R$40,00</p>
+                      </div>
+                    </div>
+                    <div
+                      class="card mx-3 col-12 col-sm-12 col-lg-4 d-none d-lg-block"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="./dist/assets/images/produto.png"
+                        class="card-img-top"
+                        alt="Produto"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">CAMISETA</h5>
+                        <p
+                          class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                        >
+                          DESCONTO 50% OFF
+                        </p>
+                        <p class="text-muted text-decoration-line-through">
+                          R$80,00
+                        </p>
+                        <p class="fw-bold text-success">R$40,00</p>
+                      </div>
+                    </div>
+                    <div
+                      class="card mx-3 col-12 col-sm-12 col-lg-4 d-none d-lg-block"
+                      style="width: 18rem"
+                    >
+                      <img
+                        src="./dist/assets/images/produto.png"
+                        class="card-img-top"
+                        alt="Produto"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">CAMISETA</h5>
+                        <p
+                          class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
+                        >
+                          DESCONTO 50% OFF
+                        </p>
+                        <p class="text-muted text-decoration-line-through">
+                          R$80,00
+                        </p>
+                        <p class="fw-bold text-success">R$40,00</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
-                <img
-                  src="./dist/assets/images/produto.png"
-                  class="card-img-top"
-                  alt="Produto"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">CAMISETA</h5>
-                  <p
-                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
-                  >
-                    DESCONTO 50% OFF
-                  </p>
-                  <p class="text-muted text-decoration-line-through">R$80,00</p>
-                  <p class="fw-bold text-success">R$40,00</p>
-                </div>
-              </div>
-              <div class="card mx-3 col-sm-12 col-md-3 mb-4" style="width: 18rem">
-                <img
-                  src="./dist/assets/images/produto.png"
-                  class="card-img-top"
-                  alt="Produto"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">CAMISETA</h5>
-                  <p
-                    class="card-text bg-primary text-light p-2 fw-semibold rounded-3"
-                  >
-                    DESCONTO 50% OFF
-                  </p>
-                  <p class="text-muted text-decoration-line-through">R$80,00</p>
-                  <p class="fw-bold text-success">R$40,00</p>
-                </div>
-              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#storeCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#storeCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Próximo</span>
+              </button>
             </div>
           </div>
-          <!-- Replicar os cards conforme necessário -->
         </section>
       </div>
     </main>
@@ -197,8 +359,6 @@
       </div>
       <p>Fourminds Tech ©</p>
     </footer>
-
-    <!-- Scripts -->
     <script src="/web/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
