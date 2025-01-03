@@ -6,6 +6,5 @@ export interface EventGateway {
     listEvents(): Promise<EventProps[]>;
     getEventById(id: string): Promise<EventProps | null>;
     updateEvent(id: string, data: Partial<Omit<EventProps, "id">>): Promise<EventProps>;
-    deleteEvent(eventId: string, data?: { reason: string }): Promise<{ id: string }>;
-
+    deleteEvent(id: string): Promise<void>;
 }
