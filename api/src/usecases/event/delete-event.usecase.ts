@@ -1,4 +1,4 @@
-import { EventGateway } from "../../gateway/event.gateway";
+import { EventGateway } from "../../domain/gateway/event.gateway";
 import { BaseUsecase } from "../usecase";
 
 export class DeleteEventUseCase extends BaseUsecase<string, void> {
@@ -16,9 +16,8 @@ export class DeleteEventUseCase extends BaseUsecase<string, void> {
             if (error instanceof Error) {
                 this.handleError(error);
             } else {
-                this.handleError(new Error("Erro desconhecido ao deletar evento."))
+                this.handleError(new Error("Erro desconhecido ao deletar evento."));
             }
-            
         }
     }
 }
