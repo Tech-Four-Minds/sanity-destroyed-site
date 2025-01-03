@@ -14,76 +14,78 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="dist/assets/css/styles.css" />
   </head>
-  <body class="background-home">
-    <header class="container col-12 h-25 p-3">
-      <nav>
-        <!-- Navegação para Dispositivos Grandes -->
-        <div class="d-none d-lg-flex justify-content-around align-items-center">
-          <a class="link" href="dist/pages/agenda.html">Agenda</a>
-          <a class="link" href="#">Banda</a>
-          <a class="link" href="#">Músicas</a>
-          <a href="/">
-            <img src="./dist/assets/images/logo.png" alt="logo" />
-          </a>
-          <a class="link" href="dist/pages/news.html">Novidades</a>
-          <a class="link" href="#">Mídias</a>
-          <a class="link" href="#">Loja</a>
-        </div>
-
-        <!-- Ícone do menu como Dropdown (Móvel) -->
-        <div class="d-lg-none position-relative">
-          <!-- Logo Centralizada (Móvel) -->
-          <div class="text-center mb-3">
+  <body>
+    <div class="background-home">
+      <header class="container col-12 h-25 p-3">
+        <nav>
+          <!-- Navegação para Dispositivos Grandes -->
+          <div
+            class="d-none d-lg-flex justify-content-around align-items-center"
+          >
+            <a class="link" href="dist/pages/agenda.html">Agenda</a>
+            <a class="link" href="#">Banda</a>
+            <a class="link" href="#">Músicas</a>
             <a href="/">
-              <img
-                src="./dist/assets/images/logo.png"
-                alt="logo"
-                class="img-fluid"
-              />
+              <img src="./dist/assets/images/logo.png" alt="logo" />
             </a>
+            <a class="link" href="dist/pages/news.html">Novidades</a>
+            <a class="link" href="#">Mídias</a>
+            <a class="link" href="#">Loja</a>
           </div>
 
-          <!-- Botão Dropdown -->
-          <div class="dropdown position-absolute top-0 end-0 m-3">
-            <button
-              class="btn border-0"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <img
-                class="img-fluid dropdown-icon"
-                style="width: 2rem"
-                src="./dist/assets/icons/menu.svg"
-                alt="menu"
-              />
-            </button>
-            <ul
-              class="dropdown-menu text-center"
-              aria-labelledby="dropdownMenuButton"
-            >
-              <li>
-                <a class="dropdown-item" href="dist/pages/agenda.html"
-                  >Agenda</a
-                >
-              </li>
-              <li><a class="dropdown-item" href="#">Banda</a></li>
-              <li><a class="dropdown-item" href="#">Músicas</a></li>
-              <li>
-                <a class="dropdown-item" href="dist/pages/news.html"
-                  >Novidades</a
-                >
-              </li>
-              <li><a class="dropdown-item" href="#">Mídias</a></li>
-              <li><a class="dropdown-item" href="#">Loja</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+          <!-- Ícone do menu como Dropdown (Móvel) -->
+          <div class="d-lg-none position-relative">
+            <!-- Logo Centralizada (Móvel) -->
+            <div class="text-center mb-3">
+              <a href="/">
+                <img
+                  src="./dist/assets/images/logo.png"
+                  alt="logo"
+                  class="w-25 img-fluid"
+                />
+              </a>
+            </div>
 
-    <main>
+            <!-- Botão Dropdown -->
+            <div class="dropdown position-absolute top-0 end-0 m-3">
+              <button
+                class="btn border-0"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  class="img-fluid dropdown-icon"
+                  style="width: 2rem"
+                  src="./dist/assets/icons/menu.svg"
+                  alt="menu"
+                />
+              </button>
+              <ul
+                class="dropdown-menu text-center"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <li>
+                  <a class="dropdown-item" href="dist/pages/agenda.html"
+                    >Agenda</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#">Banda</a></li>
+                <li><a class="dropdown-item" href="#">Músicas</a></li>
+                <li>
+                  <a class="dropdown-item" href="dist/pages/news.html"
+                    >Novidades</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#">Mídias</a></li>
+                <li><a class="dropdown-item" href="#">Loja</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
       <!-- Seção Agenda -->
       <section
         class="container mb-5 d-flex flex-column align-items-center justify-content-center"
@@ -116,7 +118,8 @@
           </div>
         </div>
       </section>
-
+    </div>
+    <main>
       <!-- Seção Notícias -->
       <section
         class="container h-auto d-flex flex-column align-items-start justify-content-center"
