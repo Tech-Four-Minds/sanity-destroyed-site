@@ -1,6 +1,6 @@
-import { EventProps } from "../../entity/event";
-import { EventGateway } from "../../gateway/event.gateway";
-import { BaseUsecase } from "../usecase";
+import { EventProps } from "../../../domain/entity/event";
+import { EventGateway } from "../../../domain/gateway/event.gateway";
+import { BaseUsecase } from "../../usecase";
 
 export class ListEventsUseCase extends BaseUsecase<null, EventProps[]> {
     constructor(private eventGateway: EventGateway) {

@@ -1,6 +1,6 @@
-import { EventProps } from "../../entity/event";
-import { EventGateway } from "../../gateway/event.gateway";
-import { BaseUsecase } from "../usecase";
+import { EventProps } from "../../../domain/entity/event";
+import { EventGateway } from "../../../domain/gateway/event.gateway";
+import { BaseUsecase } from "../../usecase";
 
 type UpdateEventinput = Partial<Omit<EventProps, "id">>;
 
