@@ -1,12 +1,14 @@
-@import "./abstracts/fonts";
 @import "./abstracts/variables";
-
-@import "./layouts/header";
-@import "./layouts/footer";
-@import "./layouts/section";
+@import "./abstracts/fonts";
 
 @import "./pages/home";
 @import "./pages/agenda";
 @import "./pages/news";
 
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./layouts/section";
+
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
+@import "./layouts/media";

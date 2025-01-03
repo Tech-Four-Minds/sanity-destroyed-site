@@ -1,0 +1,25 @@
+@media (max-width: 768px) {  
+    .media-fs{
+        font-size: .8rem;
+    }
+    .text-agenda {
+        text-shadow: .8px 1.8px $dark;
+    }
+
+    .btn{
+        font-size: .8rem;
+    } 
+} 
+
+@media (max-width: 576px) {  
+    .media-fs{
+        font-size: .5rem;
+    }
+    .text-agenda {
+        text-shadow: .5px 1.5px $dark;
+    }
+
+    .btn{
+        font-size: .5rem;
+    }
+}
