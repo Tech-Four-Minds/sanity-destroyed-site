@@ -22,13 +22,18 @@ export class UpdateEventUsecase extends BaseUsecase<{ id: string; data: UpdateEv
             } else {
                 this.handleError(new Error("Erro ao atualizar evento."));
             }
-            throw new Error("Atualização falhou.")            
+            throw new Error("Atualização falhou."); 
         }
     }
 
     validateInput(input: { id: string; data: UpdateEventinput; }): void {
-        if (!input.id || input.data) {
-            throw new Error("ID e dados da atualização são obrigatórios. ")
+        if (!input.id || !input.data) {  
+            throw new Error("ID e dados da atualização são obrigatórios.");
         }
+    }
+
+    handleError(error: Error): void {
+        console.error("Erro ao processar a operação:", error.message);
+        throw new Error("Atualização falhou.");  
     }
 }
