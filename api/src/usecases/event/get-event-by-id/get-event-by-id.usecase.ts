@@ -7,28 +7,25 @@ export class getEventByIdUseCase extends BaseUsecase<string, EventProps | null> 
         super();
     }
 
+    validateInput(id: string): void {
+        if (!id) {
+            throw new Error("Entrada inválida");
+        }
+    }
+
     async execute(id: string): Promise<EventProps | null> {
         this.validateInput(id);
 
         try {
-
             const event = await this.eventGateway.getEventById(id);
-
             this.logAction(`Evento ${id} buscado com sucesso`);
-
             return event;
-            
         } catch (error: unknown) {
-            
-            if (error instanceof Error) {
-                this.handleError(error);
+            const errorMessage = error instanceof Error ? error.message : "Erro ao buscar o evento";
 
-            } else {
-                this.handleError(new Error("Erro ao buscar o evento"))
-            }
-
+        
+            this.handleError(new Error(`Erro ao processar a operação: ${errorMessage}`));
             return null;
         }
-        
     }
 }

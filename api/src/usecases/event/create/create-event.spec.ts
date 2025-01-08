@@ -85,10 +85,18 @@ describe("CreateEventUseCase", () => {
 
     it("should throw error if event creation fails", async () => {
         const input = { ...mockEvent, name: "Error Event" };
-        (mockEventGateway.createEvent as jest.Mock).mockRejectedValue(new Error("Database Error"));
+        const errorMessage = "Database Error";
+
+        (mockEventGateway.createEvent as jest.Mock).mockRejectedValue(new Error(errorMessage));
+
+        const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
         await expect(createEventUseCase.execute(input))
             .rejects
             .toThrow("Operação falhou. Tente novamente mais tarde.");
+
+        expect(errorSpy).toHaveBeenCalledWith("Erro ao processar a operação:", errorMessage);
+
+        errorSpy.mockRestore();
     });
 });

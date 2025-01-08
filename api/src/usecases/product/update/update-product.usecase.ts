@@ -1,6 +1,6 @@
-import { ProductProps } from "../../domain/entity/products";
-import { ProductGateway } from "../../domain/gateway/products.gateway";
-import { BaseUsecase } from "../usecase";
+import { ProductProps } from "../../../domain/entity/products";
+import { ProductGateway } from "../../../domain/gateway/products.gateway";
+import { BaseUsecase } from "../../usecase";
 
 type UpdateProductInput = Partial<Omit<ProductProps, "id">>;
 
