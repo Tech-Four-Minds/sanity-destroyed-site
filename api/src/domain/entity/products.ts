@@ -81,6 +81,10 @@ export class Product {
         return this.props.quantity
     }
 
+    public get image(){
+        return this.props.image
+    }
+
     public set name(value: string) {
         if(!value || value.trim().length === 0){
             throw new Error("O nome do produto é obrigatório.");
