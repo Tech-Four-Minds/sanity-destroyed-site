@@ -33,6 +33,10 @@ export class News {
         return this.props.description
     }
 
+    public get date(){
+        return this.props.date
+    }
+
 
 
 }
