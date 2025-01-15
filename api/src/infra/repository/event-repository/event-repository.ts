@@ -1,5 +1,5 @@
-import { EventProps } from "../../domain/entity/event";
-import { EventGateway } from "../../domain/gateway/event.gateway";
+import { EventProps } from "../../../domain/entity/event";
+import { EventGateway } from "../../../domain/gateway/event.gateway";
 
 export class InMemoryEventRepository implements EventGateway {
   private events: EventProps[] = [];

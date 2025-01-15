@@ -99,6 +99,13 @@ export class Product {
         this.props.price = value;
     }
 
+    public set type(value: string) {
+        if (!value || value.trim().length === 0) {
+            throw new Error("O tipo do produto é obrigatório.");
+        }
+        this.props.type = value;
+    }
+
     public set size(value: string) {
         this.props.size = value;
     }
@@ -108,6 +115,10 @@ export class Product {
             throw new Error("A quantidade do produto não pode ser negativa.");
         }
         this.props.quantity = value;
+    }
+
+    public set image(value: string | undefined) {
+        this.props.image = value;
     }
 
     public addQuantity(amount: number) {
