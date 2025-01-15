@@ -40,6 +40,99 @@
   color: black;
 }
 
+.container-section {
+  width: 65%;
+}
+.container-section .player-music {
+  border-radius: 10px;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  .container-section .player-music {
+    border-radius: 100px 0 0 100px;
+    height: 50%;
+  }
+}
+.container-section .player-music .control {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container-section .player-music .control img {
+  max-width: 10%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+@media (min-width: 992px) {
+  .container-section .player-music .control img {
+    max-width: 75%;
+  }
+}
+.container-section .player-music .control img:hover {
+  transform: scale(1.1);
+}
+.container-section .player-music .progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #f7f7f7;
+}
+.container-section .player-music .progress-container .current-time,
+.container-section .player-music .progress-container .total-time {
+  width: 50px;
+  text-align: center;
+}
+.container-section .player-music .progress-container .progress-bar {
+  flex-grow: 1;
+  height: 8px;
+  background-color: #6b6b6b;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 10px;
+}
+.container-section .player-music .progress-container .progress-bar .progress {
+  height: 100%;
+  width: 0;
+  background-color: #d83236;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.container-section .player-music .music-list ul {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #d83236 #6b6b6b;
+}
+.container-section .player-music .music-list ul::-webkit-scrollbar {
+  width: 8px;
+}
+.container-section .player-music .music-list ul::-webkit-scrollbar-thumb {
+  background-color: #d83236;
+  border-radius: 10px;
+}
+.container-section .player-music .music-list ul::-webkit-scrollbar-track {
+  background-color: #6b6b6b;
+}
+.container-section .streamer {
+  height: 25%;
+}
+
+.play-list {
+  width: 20%;
+  border-radius: 10px;
+}
+@media (min-width: 992px) {
+  .play-list {
+    border-radius: 0 100px 100px 0;
+  }
+}
+
 .link {
   position: relative;
   color: #1c1919;

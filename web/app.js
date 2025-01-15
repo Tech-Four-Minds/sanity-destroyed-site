@@ -18,6 +18,10 @@ app.get("/novidades", async (req, res) => {
     res.sendFile(path.join(__dirname, "/public/pages/news.html"));
 });
 
+app.get("/musicas", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/pages/musics.html"))
+});
+
 app.listen(3000, () => {
     console.log("http://localhost:3000");
 });
