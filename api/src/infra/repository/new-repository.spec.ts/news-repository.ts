@@ -1,5 +1,5 @@
-import { NewsGateway } from "../../domain/gateway/news.gateway"; 
-import { News, NewsProps } from "../../domain/entity/news";  
+import { NewsGateway } from "../../../domain/gateway/news.gateway"; 
+import { News, NewsProps } from "../../../domain/entity/news";  
 
 export class InMemoryNewsRepository implements NewsGateway {
   private news: News[] = [];  
