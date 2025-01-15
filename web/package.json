@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "build-css": "npx sass src/scss/styles.scss public/dist/css/styles.css",
+    "watch-css": "npx sass --watch src/scss/styles.scss public/dist/css/styles.css",
     "start": "node ./app.js",
-    "dev": "npx sass --watch src/scss/styles.scss public/dist/css/styles.css & nodemon ./app.js"
+    "dev": "nodemon ./app.js"
   },
   "keywords": [],
   "author": "",
