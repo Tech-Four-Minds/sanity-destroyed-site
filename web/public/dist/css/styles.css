@@ -46,6 +46,7 @@
 .container-section .player-music {
   border-radius: 10px;
   height: 100%;
+  /* Estilizar o input de volume */
 }
 @media (min-width: 992px) {
   .container-section .player-music {
@@ -97,7 +98,6 @@
 }
 .container-section .player-music .progress-container .progress-bar .progress {
   height: 100%;
-  width: 0;
   background-color: #d83236;
   border-radius: 4px;
   transition: width 0.3s ease;

@@ -56,7 +56,6 @@
 
         .progress {
           height: 100%;
-          width: 0;
           background-color: $primary;
           border-radius: 4px;
           transition: width 0.3s ease;
@@ -86,8 +85,10 @@
         }
       }
     }
+
+    /* Estilizar o input de volume */ 
   }
-  
+
   .streamer {
     height: 25%;
   }

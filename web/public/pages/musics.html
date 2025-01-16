@@ -83,28 +83,7 @@
         >
           <option value="Sanity Destroyed" selected>Sanity Destroyed</option>
         </select>
-        <ul class="list-unstyled">
-          <li class="my-3">
-            <img src="/dist/assets/icons/music_note.svg" alt="note-icon" /> 1 -
-            sanity Destroyed
-          </li>
-          <li class="my-3">
-            <img src="/dist/assets/icons/music_note.svg" alt="note-icon" /> 2 -
-            sanity Destroyed
-          </li>
-          <li class="my-3">
-            <img src="/dist/assets/icons/music_note.svg" alt="note-icon" /> 3 -
-            sanity Destroyed
-          </li>
-          <li class="my-3 text-primary">
-            <img src="/dist/assets/icons/music_note.svg" alt="note-icon" /> 4 -
-            sanity Destroyed
-          </li>
-          <li class="my-3">
-            <img src="/dist/assets/icons/music_note.svg" alt="note-icon" /> 5 -
-            sanity Destroyed
-          </li>
-        </ul>
+        <ul class="list-unstyled" id="music-list"></ul>
       </section>
 
       <div class="container-section h-100">
@@ -120,17 +99,13 @@
               />
             </div>
             <div>
-              <p class="text-light fw-bold fs-2 text-center">
-                4 - Sanity Destroyed
-              </p>
-              <p class="text-primary fw-semibold text-center mb-5">
-                Sanity Destroyed
-              </p>
+              <p class="text-light fw-bold fs-2 text-center" id="music-name"></p>
+              <p class="text-primary fw-semibold text-center mb-5" id="album-name"></p>
               <div class="control">
                 <img
                   class="img-fluid"
                   src="/dist/assets/icons/player-left.svg"
-                  alt="left"
+                  alt="prev"
                 />
                 <img
                   class="img-fluid"
@@ -138,24 +113,27 @@
                   alt="play"
                 />
                 <img
-                  class="img-fluid"
+                  class="img-fluid d-none"
                   src="/dist/assets/icons/pause.svg"
                   alt="pause"
                 />
                 <img
                   class="img-fluid"
                   src="/dist/assets/icons/player-right.svg"
-                  alt="right"
+                  alt="next"
                 />
               </div>
             </div>
           </div>
           <div class="progress-container fw-bold">
-            <span class="current-time">01:55</span>
+            <span class="current-time"></span>
             <div class="progress-bar">
-              <div class="progress" style="width: 50%"></div>
+              <div class="progress"></div>
             </div>
-            <span class="total-time">03:50</span>
+            <span class="total-time"></span>
+            <div class="volume-control">
+              <input type="range" id="volume-slider" min="0" max="100" value="100" />
+            </div>
           </div>
           <div class="d-lg-none music-list text-light text-center fw-bold">
             <h1 class="mb-3 w-100">Álbuns</h1>
@@ -194,41 +172,86 @@
         </section>
 
         <section class="d-none d-lg-block streamer">
-            <ul class="list-unstyled d-flex justify-content-around align-items-center">
-              <li class="my-5 d-flex flex-column justify-content-between align-items-center">
-                <a href="https://spotify.com" class="text-decoration-none text-dark text-center">
-                  <img class="mb-3" src="/dist/assets/icons/spotify-icon.svg" alt="Spotify" />
-                  <p class="fw-bold">Spotify</p>
-                </a>
-              </li>
-              <li class="my-5 d-flex flex-column justify-content-between align-items-center">
-                <a href="https://deezer.com" class="text-decoration-none text-dark text-center">
-                  <img class="mb-3" src="/dist/assets/icons/deezer-icon.svg" alt="Deezer" />
-                  <p class="fw-bold">Deezer</p>
-                </a>
-              </li>
-              <li class="my-5 d-flex flex-column justify-content-between align-items-center">
-                <a href="https://youtube.com" class="text-decoration-none text-dark text-center">
-                  <img class="mb-3" src="/dist/assets/icons/youtube-icon.svg" alt="YouTube" />
-                  <p class="fw-bold">YouTube</p>
-                </a>
-              </li>
-              <li class="my-5 d-flex flex-column justify-content-between align-items-center text-primary">
-                <a href="https://apple.com/music" class="text-decoration-none text-dark text-center">
-                  <img class="mb-3" src="/dist/assets/icons/applemusic-icon.svg" alt="Apple Music" />
-                  <p class="fw-bold">Apple Music</p>
-                </a>
-              </li>
-              <li class="my-5 d-flex flex-column justify-content-between align-items-center">
-                <a href="https://qobuz.com" class="text-decoration-none text-dark text-center">
-                  <img class="mb-3" src="/dist/assets/icons/qobuz-icon.svg" alt="Qobuz" />
-                  <p class="fw-bold">Qobuz</p>
-                </a>
-              </li>
-            </ul>
-          </section>
-          
-          
+          <ul
+            class="list-unstyled d-flex justify-content-around align-items-center"
+          >
+            <li
+              class="my-5 d-flex flex-column justify-content-between align-items-center"
+            >
+              <a
+                href="https://spotify.com"
+                class="text-decoration-none text-dark text-center"
+              >
+                <img
+                  class="mb-3"
+                  src="/dist/assets/icons/spotify-icon.svg"
+                  alt="Spotify"
+                />
+                <p class="fw-bold">Spotify</p>
+              </a>
+            </li>
+            <li
+              class="my-5 d-flex flex-column justify-content-between align-items-center"
+            >
+              <a
+                href="https://deezer.com"
+                class="text-decoration-none text-dark text-center"
+              >
+                <img
+                  class="mb-3"
+                  src="/dist/assets/icons/deezer-icon.svg"
+                  alt="Deezer"
+                />
+                <p class="fw-bold">Deezer</p>
+              </a>
+            </li>
+            <li
+              class="my-5 d-flex flex-column justify-content-between align-items-center"
+            >
+              <a
+                href="https://youtube.com"
+                class="text-decoration-none text-dark text-center"
+              >
+                <img
+                  class="mb-3"
+                  src="/dist/assets/icons/youtube-icon.svg"
+                  alt="YouTube"
+                />
+                <p class="fw-bold">YouTube</p>
+              </a>
+            </li>
+            <li
+              class="my-5 d-flex flex-column justify-content-between align-items-center text-primary"
+            >
+              <a
+                href="https://apple.com/music"
+                class="text-decoration-none text-dark text-center"
+              >
+                <img
+                  class="mb-3"
+                  src="/dist/assets/icons/applemusic-icon.svg"
+                  alt="Apple Music"
+                />
+                <p class="fw-bold">Apple Music</p>
+              </a>
+            </li>
+            <li
+              class="my-5 d-flex flex-column justify-content-between align-items-center"
+            >
+              <a
+                href="https://qobuz.com"
+                class="text-decoration-none text-dark text-center"
+              >
+                <img
+                  class="mb-3"
+                  src="/dist/assets/icons/qobuz-icon.svg"
+                  alt="Qobuz"
+                />
+                <p class="fw-bold">Qobuz</p>
+              </a>
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
     <footer class="footer">
@@ -249,5 +272,6 @@
       <p>Fourminds Tech ©</p>
     </footer>
     <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/dist/js/musicPlayer.js"></script>
   </body>
 </html>
