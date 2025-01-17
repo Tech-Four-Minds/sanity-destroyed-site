@@ -1,5 +1,5 @@
 import { InMemoryProductRepository } from "./product-repository";
-import { ProductProps } from "../../domain/entity/products";
+import { ProductProps } from "../../../domain/entity/products";
 
 describe("InMemoryProductRepository", () => {
   let repository: InMemoryProductRepository;
