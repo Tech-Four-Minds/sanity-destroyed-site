@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanity Destroyed</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
+    <link
+      rel="shortcut icon"
+      href="/dist/assets/images/logo.ico"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <!-- Header -->
@@ -99,8 +104,14 @@
               />
             </div>
             <div>
-              <p class="text-light fw-bold fs-2 text-center" id="music-name"></p>
-              <p class="text-primary fw-semibold text-center mb-5" id="album-name"></p>
+              <p
+                class="text-light fw-bold fs-2 text-center"
+                id="music-name"
+              ></p>
+              <p
+                class="text-primary fw-semibold text-center mb-5"
+                id="album-name"
+              ></p>
               <div class="control">
                 <img
                   class="img-fluid"
@@ -131,9 +142,16 @@
               <div class="progress"></div>
             </div>
             <span class="total-time"></span>
-            <div class="volume-control">
-              <input type="range" id="volume-slider" min="0" max="100" value="100" />
-            </div>
+          </div>
+          <div class="volume-control">
+            <input
+              type="range"
+              id="volume-slider"
+              min="0"
+              max="100"
+              value="100"
+            />
+            <img class="audio-icon" src="/dist/assets/icons/audio-icon.svg" alt="">
           </div>
           <div class="d-lg-none music-list text-light text-center fw-bold">
             <h1 class="mb-3 w-100">Álbuns</h1>

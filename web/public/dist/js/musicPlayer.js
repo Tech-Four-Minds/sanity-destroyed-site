@@ -82,12 +82,12 @@ const musicPlayer = () => {
   };
 
   const nextMusic = () => {
-    currentIndex = currentIndex + 1;
+    currentIndex = (currentIndex + 1) % musics.length;
     display();
     playMusic();
   };
   const prevMusic = () => {
-    currentIndex = currentIndex - 1;
+    currentIndex = (currentIndex - 1 + musics.length) % musics.length;
     display();
     playMusic();
   };
@@ -138,6 +138,9 @@ const musicPlayer = () => {
   volumeSlider.addEventListener("input", (event) => {
     const volume = event.target.value / 100;
     audio.volume = volume;
+
+    let line = document.querySelector(".line");
+    line.style.width = volume;
   });
 
   audio.volume = volumeSlider.value / 100;

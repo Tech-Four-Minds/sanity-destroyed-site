@@ -46,6 +46,7 @@
 .container-section .player-music {
   border-radius: 10px;
   height: 100%;
+  position: relative;
   /* Estilizar o input de volume */
 }
 @media (min-width: 992px) {
@@ -118,6 +119,33 @@
 }
 .container-section .player-music .music-list ul::-webkit-scrollbar-track {
   background-color: #6b6b6b;
+}
+.container-section .player-music .volume-control {
+  position: absolute;
+  position: relative;
+  bottom: 40%;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-section .player-music .audio-icon {
+  position: absolute;
+  bottom: 0%;
+}
+.container-section .player-music #volume-slider {
+  appearance: none;
+  width: 100%;
+  transform: rotate(270deg);
+  height: 4px;
+  background-color: #6b6b6b;
+}
+.container-section .player-music #volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background-color: #d83236;
+  border-radius: 50%;
 }
 .container-section .streamer {
   height: 25%;
