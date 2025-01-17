@@ -1,5 +1,5 @@
 import { InMemoryNewsRepository } from "./news-repository";
-import { NewsProps } from "../../domain/entity/news";
+import { NewsProps } from "../../../domain/entity/news";
 
 describe("InMemoryNewsRepository", () => {
   let repository: InMemoryNewsRepository;

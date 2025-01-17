@@ -1,5 +1,5 @@
 import { InMemoryEventRepository } from "./event-repository";
-import { EventProps } from "../../domain/entity/event";
+import { EventProps } from "../../../domain/entity/event";
 
 describe("InMemoryEventRepository", () => {
   let repository: InMemoryEventRepository;
