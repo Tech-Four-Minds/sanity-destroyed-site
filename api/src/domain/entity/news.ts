@@ -22,21 +22,47 @@ export class News {
     public static with(props: NewsProps){
         return new News(props);
     }
-    public get IdNews(){
+    public get IdNews(): string{
         return this.props.IdNews;
     }
    
-    public get name(){
+    public get name(): string{
         return this.props.name;
     }
-    public get description(){
+
+    public get date(): Date{
+        return this.props.date;
+    }
+
+    public get description(): string{
         return this.props.description
     }
 
-    public get date(){
-        return this.props.date
+   
+    public set name(name: string) {
+        if (!name || name.trim().length === 0) {
+            throw new Error("O nome da notícia é obrigatório.");
+        }
+        this.props.name = name;
     }
 
+    public set description(description: string) {
+        if (!description || description.trim().length === 0) {
+            throw new Error("A descrição da notícia é obrigatória.");
+        }
+        this.props.description = description;
+    }
 
-
+    public set date(date: Date) {
+        if (!(date instanceof Date)) {
+            throw new Error("Data inválida. Esperado uma instância de Date.");
+        }
+        if (isNaN(date.getTime())) {
+            throw new Error("Data inválida.");
+        }
+        this.props.date = date;
+    }
+    
+    
+    
 }

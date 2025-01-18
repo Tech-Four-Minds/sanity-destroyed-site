@@ -92,12 +92,27 @@ export class Event {
         this.props.location = location;
     }
 
+    public set date(date: Date) {
+        if (new Date(date) < new Date()) {
+            throw new Error("A data do evento não pode ter passado.");
+        }if (!(date instanceof Date)) {
+            throw new Error("Data inválida. Esperado uma instância de Date.");
+        }
+        if (isNaN(date.getTime())) {
+            throw new Error("Data inválida.");
+        }
+
+        this.props.date = date;
+    }
+
     public set schedule(schedule: string) {
-        if (isNaN(Date.parse(schedule))) {
+        const date = new Date(`1970-01-01T${schedule}Z`); 
+        if (isNaN(date.getTime())) {
             throw new Error("O horário informado é inválido.");
         }
         this.props.schedule = schedule;
     }
+    
 
     public set price(price: number) {
         if (price < 0) {
@@ -105,6 +120,18 @@ export class Event {
         }
         this.props.price = price;
     }
+
+    public set ticket(ticket: string) {
+        if (!ticket || ticket.trim().length === 0) {
+            throw new Error("O ticket é obrigatório.");
+        }
+        this.props.ticket = ticket;
+    }
+
+    public set image(value: string | undefined) {
+        this.props.image = value;
+    }
+    
 
     public set status(status: boolean) {
         this.props.status = status;
