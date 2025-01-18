@@ -18,6 +18,10 @@ app.get("/novidades", async (req, res) => {
     res.sendFile(path.join(__dirname, "/public/pages/news.html"));
 });
 
+app.get("/banda", async (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/pages/band.html"));
+});
+
 app.get("/musicas", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/pages/musics.html"))
 });

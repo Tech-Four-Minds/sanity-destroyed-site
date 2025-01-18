@@ -57,27 +57,27 @@ export class Product {
         return new Product(props);
     }
     
-    public get id() {
+    public get id(): string {
         return this.props.id;
     }
 
-    public get name(){
+    public get name(): string{
         return this.props.name;
     }
 
-    public get price(){
+    public get price(): number{
         return this.props.price;
     }
 
-    public get type(){
+    public get type(): string{
         return this.props.type;
     }
     
-    public get size(){
+    public get size(): string{
         return this.props.size;
     }
 
-    public get quantity(){
+    public get quantity(): number{
         return this.props.quantity
     }
 

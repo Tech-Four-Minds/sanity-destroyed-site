@@ -35,24 +35,22 @@ export class InMemoryNewsRepository implements NewsGateway {
   }
 
  
-  public async updateNews(IdNews: string, data: Partial<Omit<NewsProps, "IdNews">>): Promise<NewsProps> {
-    const newsIndex = this.news.findIndex(news => news.IdNews === IdNews);
-    if (newsIndex === -1) throw new Error("Notícia não encontrada.");
+  public async updateNews(id: string, data: Partial<Omit<NewsProps, "IdNews">>): Promise<NewsProps> {
+    const news = this.news.find(n => n.IdNews === id);
+    if (!news) throw new Error("Notícia não encontrada.");
 
-    const updatedNews = News.create(
-      data.name ?? this.news[newsIndex].name,    
-      data.date ?? this.news[newsIndex].date,    
-      data.description ?? this.news[newsIndex].description    
-    );
+    if (data.name) news.name = data.name;
+    if (data.date) news.date = new Date(data.date); 
+    if (data.description) news.description = data.description;
 
-    this.news[newsIndex] = updatedNews;  
+
     return {
-      IdNews: updatedNews.IdNews,  
-      name: updatedNews.name,     
-      description: updatedNews.description,  
-      date: updatedNews.date,      
-    };  
-  }
+        IdNews: news.IdNews,
+        name: news.name,
+        date: news.date, 
+        description: news.description,
+    };
+}
 
   public async deleteNews(IdNews: string): Promise<void> {
     const newsIndex = this.news.findIndex(news => news.IdNews === IdNews);
