@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/dist/assets/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/dist/css/styles.css">
+    <title>Loja</title>
+</head>
+<body>
+    <header class="background-header p-3">
+        <nav class="container">
+          <!-- Navegação para Dispositivos Grandes -->
+          <div class="d-none d-lg-flex justify-content-around align-items-center">
+            <a class="link" href="/agenda">Agenda</a>
+            <a class="link" href="/banda">Banda</a>
+            <a class="link" href="/musicas">Músicas</a>
+            <a href="/">
+              <img src="/dist/assets/images/logo.png" alt="logo" />
+            </a>
+            <a class="link" href="/novidades">Novidades</a>
+            <a class="link" href="/midias">Mídias</a>
+            <a class="link active" href="/loja">Loja</a>
+          </div>
+  
+          <!-- Ícone do menu como Dropdown (Móvel) -->
+          <div class="d-lg-none position-relative">
+            <!-- Logo Centralizada (Móvel) -->
+            <div class="text-center mb-3">
+              <a href="/">
+                <img
+                  src="/dist/assets/images/logo.png"
+                  alt="logo"
+                  class="img-fluid w-25"
+                />
+              </a>
+            </div>
+  
+            <!-- Botão Dropdown -->
+            <div class="dropdown position-absolute top-0 end-0 m-3">
+              <button
+                class="btn border-0"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  class="img-fluid dropdown-icon"
+                  style="width: 2rem"
+                  src="/dist/assets/icons/menu.svg"
+                  alt="menu"
+                />
+              </button>
+               <ul
+              class="dropdown-menu text-center"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li>
+                <a class="dropdown-item" href="/agenda"
+                  >Agenda</a
+                >
+              </li>
+              <li><a class="dropdown-item" href="/banda">Banda</a></li>
+              <li><a class="dropdown-item" href="/musicas">Músicas</a></li>
+              <li><a class="dropdown-item" href="/novidades">Novidades</a></li>
+              <li><a class="dropdown-item" href="/midias">Mídias</a></li>
+              <li><a class="dropdown-item" href="/loja">Loja</a></li>
+            </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main>
+        <div class="position-relative text-center">
+            <figure class="m-0 position-relative">
+                <!-- Imagem de fundo -->
+                <img src="/dist/assets/images/imagensPageBand/band.png" alt="Imagem de fundo" class="img-fluid w-100">
+
+                <!-- Overlay escuro -->
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+        
+                <!-- Texto sobreposto -->
+                <div class="position-absolute top-50 start-50 translate-middle w-100 text-white">
+                    <h1 class="fs-1 fw-bold mb-3">PRODUTOS <span class="text-primary">SANITY DESTROYED</span></h1>
+                    <a href="#products" class="btn btn-primary fs-4 fw-bold d-none d-lg-inline">COMPRAR</a>
+                </div>
+            </figure>
+        </div>
+
+        <section class="mt-5" id="products">
+            <h2>Produtos</h2>
+            <div>
+                
+            </div>
+        </section>
+    </main>
+
+    <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>
