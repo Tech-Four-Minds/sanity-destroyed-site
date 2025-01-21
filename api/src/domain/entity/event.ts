@@ -106,7 +106,7 @@ export class Event {
     }
 
     public set schedule(schedule: string) {
-        const date = new Date(`1970-01-01T${schedule}Z`); 
+        const date = new Date(schedule); 
         if (isNaN(date.getTime())) {
             throw new Error("O horário informado é inválido.");
         }
