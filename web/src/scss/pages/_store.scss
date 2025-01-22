@@ -17,11 +17,21 @@
     font-size: .7rem;
 }
 
-@media (min-width: 1200px) { 
-    .font-discount {
-        font-size: .7rem;
+@media (min-width: 576px) { 
+    .font-name-product{
+        font-size: .8rem;
     }
+
+    .font-discount {
+        font-size: .5rem;
+    }
+}
+
+@media (min-width: 1200px) { 
     .font-name-product{
         font-size: 1rem;
     } 
+    .font-discount {
+        font-size: .7rem;
+    }
 }
