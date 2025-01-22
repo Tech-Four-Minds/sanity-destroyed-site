@@ -26,6 +26,10 @@ app.get("/musicas", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/pages/musics.html"))
 });
 
+app.get("/loja", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/pages/store.html"))
+});
+
 app.listen(3000, () => {
     console.log("http://localhost:3000");
 });
