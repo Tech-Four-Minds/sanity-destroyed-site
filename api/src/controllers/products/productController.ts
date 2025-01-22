@@ -9,6 +9,30 @@ export class ProductController {
         this.productGateway = productGateway;
     }
 
+     /**
+     * @swagger
+     * /products:
+     *   post:
+     *     summary: Cria um novo produto.
+     *     description: Adiciona um novo produto ao banco de dados.
+     *     tags:
+     *       - Produtos
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Produtos'
+     *     responses:
+     *       201:
+     *         description: Produto criado com sucesso.
+     *       400:
+     *         description: Erro na criação do produto.
+     *       500:
+     *         description: Erro Interno no servidor.
+     */
+
+
     async createProduct (req: Request, res: Response): Promise<void> {
         const {name, price, type, size, quantity, image } = req.body;
         try {
@@ -27,6 +51,28 @@ export class ProductController {
         }
     };
 
+    /**
+     * @swagger
+     * /products:
+     *   get:
+     *     summary: Lista todos os produtos.
+     *     tags:
+     *       - Produtos
+     *     responses:
+     *       200:
+     *         description: Lista de produtos retornada com sucesso.
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/Produtos'
+     *       400:
+     *         description: Erro ao listar os produtos.
+     *       500:
+     *         description: Erro interno no servidor.
+     */
+
     async listProducts (req: Request, res: Response): Promise<void> {
         try {
             const products = await this.productGateway.listProducts();
@@ -37,6 +83,31 @@ export class ProductController {
 
         
     };
+
+    /**
+     * @swagger
+     * /products/{id}:
+     *   get:
+     *     summary: Busca um produto por ID.
+     *     tags:
+     *       - Produtos
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         description: ID do produto.
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Produto retornado com sucesso.
+     *       404:
+     *         description: Produto não encontrado.
+     *       400:
+     *         description: Erro ao buscar o produto.
+     *       500:
+     *         description: Erro interno no servidor.
+     */
 
     async getProductById(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
@@ -53,6 +124,37 @@ export class ProductController {
         }
     };
 
+    /**
+     * @swagger
+     * /products/{id}:
+     *   put:
+     *     summary: Atualiza um produto existente.
+     *     tags:
+     *       - Produtos
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         description: ID do produto.
+     *         schema:
+     *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Produtos'
+     *     responses:
+     *       200:
+     *         description: Produto atualizado com sucesso.
+     *       400:
+     *         description: Erro ao atualizar o produto.
+     *       404:
+     *         description: Produto não encontrado.
+     *       500:
+     *         description: Erro interno no servidor.
+     */
+
     async updateProduct (req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         const data = req.body;
@@ -65,6 +167,31 @@ export class ProductController {
             res.status(400).json({ error: (error as Error).message});
         }
     };
+
+    /**
+     * @swagger
+     * /products/{id}:
+     *   delete:
+     *     summary: Deleta um produto por ID.
+     *     tags:
+     *       - Produtos
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         description: ID do produto.
+     *         schema:
+     *           type: string
+     *     responses:
+     *       204:
+     *         description: Produto deletado com sucesso.
+     *       400:
+     *         description: Erro ao deletar o produto.
+     *       404:
+     *         description: Produto não encontrado.
+     *       500:
+     *         description: Erro interno no servidor.
+     */
 
     async deleteProduct(req: Request, res: Response): Promise<void> {
         const { id } = req.params;

@@ -54,14 +54,13 @@ export class News {
     }
 
     public set date(date: Date) {
-        if (!(date instanceof Date)) {
-            throw new Error("Data inválida. Esperado uma instância de Date.");
-        }
-        if (isNaN(date.getTime())) {
+        if (!(date instanceof Date) || isNaN(date.getTime())) {
             throw new Error("Data inválida.");
         }
-        this.props.date = date;
+        const normalizedDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        this.props.date = normalizedDate;
     }
+    
     
     
     

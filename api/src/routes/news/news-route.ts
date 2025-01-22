@@ -9,8 +9,8 @@ export const newsRouter = () => {
 
     const routerNews = Router();
 
-    routerNews.post("/news/post", newsController.createNews.bind(newsController));
-    routerNews.get("/news/get", newsController.listNews.bind(newsController));
+    routerNews.post("/news/", newsController.createNews.bind(newsController));
+    routerNews.get("/news/", newsController.listNews.bind(newsController));
     routerNews.get("/news/:id", newsController.getNewsById.bind(newsController));
     routerNews.put("/news/:id", newsController.updateNews.bind(newsController));
     routerNews.delete("/news/:id", newsController.deleteNews.bind(newsController));

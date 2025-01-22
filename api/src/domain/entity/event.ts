@@ -106,9 +106,9 @@ export class Event {
     }
 
     public set schedule(schedule: string) {
-        const date = new Date(schedule); 
-        if (isNaN(date.getTime())) {
-            throw new Error("O horário informado é inválido.");
+        const scheduleRegex = /^\d{2}:\d{2} - \d{2}:\d{2}$/; 
+        if (!scheduleRegex.test(schedule)) {
+            throw new Error("O horário informado é inválido. Use o formato HH:MM - HH:MM.");
         }
         this.props.schedule = schedule;
     }

@@ -9,8 +9,8 @@ export const productRoutes = () => {
 
     const routerProduct = Router();
 
-    routerProduct.post("/products/post", productController.createProduct.bind(productController));
-    routerProduct.get("/products/get", productController.listProducts.bind(productController));
+    routerProduct.post("/products/", productController.createProduct.bind(productController));
+    routerProduct.get("/products/", productController.listProducts.bind(productController));
     routerProduct.get("/products/:id", productController.getProductById.bind(productController));
     routerProduct.put("/products/:id", productController.updateProduct.bind(productController));
     routerProduct.delete("/products/:id", productController.deleteProduct.bind(productController));
