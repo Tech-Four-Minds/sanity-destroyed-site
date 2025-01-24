@@ -4,21 +4,15 @@
     background-size: cover;
 }
 
-.background-agenda{
-    background-image: url("/dist/assets/images/background-agenda.png");
-    background-size: cover;
-    height: 100vh;
+.text-shadow {
+    text-shadow: 0px 2px $dark;
 }
 
-.text-agenda{
-    color: $light;
-    text-shadow: 1px 3px $dark;
-}
-
-@media (max-width: 991px) {
+@media (min-width: 991px) {
     .background-agenda{ 
-        background-image: none;
-        background: linear-gradient($light, $dark);
+        background-image: url("/dist/assets/images/background-agenda.png");
+        background-size: cover;
+        height: 100vh;
     }
     
 }
