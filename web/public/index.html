@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./dist/assets/images/logo.ico" type="image/x-icon"/>
+    <link
+      rel="shortcut icon"
+      href="./dist/assets/images/logo.ico"
+      type="image/x-icon"
+    />
     <title>Sanity Destroyed</title>
 
     <!-- Estilos -->
@@ -63,16 +67,12 @@
                 aria-labelledby="dropdownMenuButton"
               >
                 <li>
-                  <a class="dropdown-item" href="/agenda"
-                    >Agenda</a
-                  >
+                  <a class="dropdown-item" href="/agenda">Agenda</a>
                 </li>
                 <li><a class="dropdown-item" href="/banda">Banda</a></li>
                 <li><a class="dropdown-item" href="/musicas">Músicas</a></li>
                 <li>
-                  <a class="dropdown-item" href="/novidades"
-                    >Novidades</a
-                  >
+                  <a class="dropdown-item" href="/novidades">Novidades</a>
                 </li>
                 <li><a class="dropdown-item" href="/midia">Mídias</a></li>
                 <li><a class="dropdown-item" href="/loja">Loja</a></li>
@@ -83,37 +83,94 @@
       </header>
 
       <!-- Seção Agenda -->
-      <section
-        class="container h-100 p-4 mb-5 d-flex flex-column align-items-center justify-content-center"
-      >
-        <div class="bg-dark h-75 w-100 text-light p-4 rounded-3">
-          <h1 class="text-center fs-3 fw-semibold mb-3 mb-lg-5">AGENDA</h1>
-          <div class="row">
-            <div class="col-md-6">
-              <ul
-                class="list-unstyled fw-semibold fs-5 d-flex flex-column justify-content-center"
-              >
-                <li>
-                  <strong class="text-primary">Evento:</strong> II BROTHERS OF
-                  METAL
-                </li>
-                <li><strong class="text-primary">Local:</strong> Lajedo/PE</li>
-                <li><strong class="text-primary">Data:</strong> 28/12/2024</li>
-                <li><strong class="text-primary">Horário:</strong> 16:00</li>
-              </ul>
+      <div class="p-5 container h-75 w-100">
+        <div class="bg-dark text-light h-100 rounded-5 p-4">
+          <h2 class="text-center mb-4">Agenda</h2>
+          <div
+            id="eventCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            style="min-height: 684px;"
+          >
+            <div class="carousel-inner">
+              <!-- Evento 1 -->
+              <div class="carousel-item active">
+                <div
+                  class="card bg-dark text-light border-light mx-auto"
+                  style="width: 24rem"
+                >
+                  <img
+                    src="/dist/assets/images/peso-do-batuque.png"
+                    class="card-img-top rounded-top"
+                    alt="Peso do Batuque"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-primary fw-bold">
+                      Peso do Batuque
+                    </h5>
+                    <p class="card-text">
+                      <strong>Data:</strong> 01 de fevereiro de 2025<br />
+                      <strong>Local:</strong> Caravela Cultural, João Pessoa -
+                      PB<br />
+                      <strong>Bilheteria:</strong>
+                      <a href="#" class="text-light" target="_blank">Sympla</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Evento 2 -->
+              <div class="carousel-item">
+                <div
+                  class="card bg-dark text-light border-light mx-auto"
+                  style="width: 24rem"
+                >
+                  <img
+                    src="/dist/assets/images/garden-of-metal.png"
+                    class="card-img-top rounded-top"
+                    alt="Garden of Metal"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-primary fw-bold">
+                      Garden of Metal
+                    </h5>
+                    <p class="card-text">
+                      <strong>Data:</strong> 22 de fevereiro de 2025<br />
+                      <strong>Local:</strong> Jardim das Acácias, Jaboatão dos
+                      Guararapes - PE<br />
+                      <strong>Ingressos:</strong> R$ 20,00
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              class="col-md-6 d-flex align-items-center justify-content-center"
+            <!-- Controles do Carrossel -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#eventCarousel"
+              data-bs-slide="prev"
             >
-              <img
-                class="img-fluid w-75 w-lg-100 rounded-3"
-                src="./dist/assets/images/post.png"
-                alt="Postagem do Evento"
-              />
-            </div>
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#eventCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
           </div>
         </div>
-      </section>
+      </div>
     </div>
     <main>
       <!-- Seção Notícias -->
