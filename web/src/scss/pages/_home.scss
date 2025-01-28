@@ -10,3 +10,9 @@
     background-size: auto;
     height: 100vh;
 }
+
+.card-post {
+    @media (min-width: 576px) {
+        max-width: 24rem;
+      }
+}
