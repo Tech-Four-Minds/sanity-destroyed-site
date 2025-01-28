@@ -1,8 +1,6 @@
-import crypto from "crypto";
-
 export type NewsProps ={
 
-    IdNews: string;
+    IdNews?: string;
     name: string;
     date: Date;
     description: string;
@@ -10,9 +8,9 @@ export type NewsProps ={
 export class News {
     private constructor(private props: NewsProps){}
 
-    public static create(name: string, date: Date, description:string){
+    public static create(name: string, date: Date, description:string, IdNews?: string){
         return new News({
-            IdNews:crypto.randomUUID().toString(),
+            IdNews: IdNews || "",
             name,
             date,
             description,
@@ -23,7 +21,7 @@ export class News {
         return new News(props);
     }
     public get IdNews(): string{
-        return this.props.IdNews;
+        return this.props.IdNews || ""; ;
     }
    
     public get name(): string{

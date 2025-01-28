@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { NewsController } from "../../controllers/news/newsController";
-import { InMemoryNewsRepository } from "../../infra/repository/new-repository.spec.ts/news-repository";
+import { PrismaNewRepository } from "../../infra/repository/new-repository/prisma-news-repository";
 
-const newsGateway = new InMemoryNewsRepository
+const newsGateway = new PrismaNewRepository
 const newsController= new NewsController(newsGateway)
 
 export const newsRouter = () => {

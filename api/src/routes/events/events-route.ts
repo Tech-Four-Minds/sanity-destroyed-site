@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { EventController } from "../../controllers/events/eventController";
-import { InMemoryEventRepository } from "../../infra/repository/event-repository/event-repository";
+import { PrismaEventRepository } from "../../infra/repository/event-repository/prisma-event-repository";
 
-const eventGateway = new InMemoryEventRepository
+const eventGateway = new PrismaEventRepository
 const eventController = new EventController(eventGateway)
 
 export const eventRoutes = () => {

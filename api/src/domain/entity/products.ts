@@ -1,13 +1,11 @@
-import crypto from "crypto";
-
 export type ProductProps = {
-    id: string
+    id?: string
     name: string
     price: number
     type: string
     size: string
     quantity: number
-    image?: string
+    image?: string 
 }
 
 export class Product {
@@ -20,7 +18,8 @@ export class Product {
         type: string, 
         size: string, 
         quantity: number,
-        image?: string
+        image?: string,
+        id?: string
     ): Product {
 
         if(!name || name.trim().length === 0){
@@ -42,7 +41,7 @@ export class Product {
         }
 
         return new Product({
-            id: crypto.randomUUID().toString(),
+            id: id || "",
             name,
             price,
             type,
@@ -58,8 +57,9 @@ export class Product {
     }
     
     public get id(): string {
-        return this.props.id;
+        return this.props.id || ""; 
     }
+
 
     public get name(): string{
         return this.props.name;
