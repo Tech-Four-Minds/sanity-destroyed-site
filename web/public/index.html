@@ -83,35 +83,23 @@
       </header>
 
       <!-- Seção Agenda -->
-      <div class="p-5 container h-75 w-100">
-        <div class="bg-dark text-light h-100 rounded-5 p-4">
+      <div class="px-2 py-5 h-75 w-100">
+        <div class="container-lg container-fluid  bg-dark text-light h-100 rounded-5 p-4">
           <h2 class="text-center mb-4">Agenda</h2>
-          <div
-            id="eventCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-            style="min-height: 684px;"
-          >
+          <div id="eventCarousel" class="carousel slide pointer-event" data-bs-ride="carousel" style="min-height: 684px;">
             <div class="carousel-inner">
               <!-- Evento 1 -->
-              <div class="carousel-item active">
-                <div
-                  class="card bg-dark text-light border-light mx-auto"
-                  style="width: 24rem"
-                >
-                  <img
-                    src="/dist/assets/images/peso-do-batuque.png"
-                    class="card-img-top rounded-top"
-                    alt="Peso do Batuque"
-                  />
+              <div class="carousel-item">
+                <div class="card bg-dark text-light border-light mx-auto card-post">
+                  <img src="/dist/assets/images/peso-do-batuque.png" class="rounded-top img-fluid" alt="Peso do Batuque">
                   <div class="card-body">
                     <h5 class="card-title text-primary fw-bold">
                       Peso do Batuque
                     </h5>
                     <p class="card-text">
-                      <strong>Data:</strong> 01 de fevereiro de 2025<br />
+                      <strong>Data:</strong> 01 de fevereiro de 2025<br>
                       <strong>Local:</strong> Caravela Cultural, João Pessoa -
-                      PB<br />
+                      PB<br>
                       <strong>Bilheteria:</strong>
                       <a href="#" class="text-light" target="_blank">Sympla</a>
                     </p>
@@ -119,24 +107,17 @@
                 </div>
               </div>
               <!-- Evento 2 -->
-              <div class="carousel-item">
-                <div
-                  class="card bg-dark text-light border-light mx-auto"
-                  style="width: 24rem"
-                >
-                  <img
-                    src="/dist/assets/images/garden-of-metal.png"
-                    class="card-img-top rounded-top"
-                    alt="Garden of Metal"
-                  />
+              <div class="carousel-item active">
+                <div class="card bg-dark text-light border-light mx-auto card-post">
+                  <img src="/dist/assets/images/garden-of-metal.png" class="rounded-top" alt="Garden of Metal">
                   <div class="card-body">
                     <h5 class="card-title text-primary fw-bold">
                       Garden of Metal
                     </h5>
                     <p class="card-text">
-                      <strong>Data:</strong> 22 de fevereiro de 2025<br />
+                      <strong>Data:</strong> 22 de fevereiro de 2025<br>
                       <strong>Local:</strong> Jardim das Acácias, Jaboatão dos
-                      Guararapes - PE<br />
+                      Guararapes - PE<br>
                       <strong>Ingressos:</strong> R$ 20,00
                     </p>
                   </div>
@@ -144,28 +125,12 @@
               </div>
             </div>
             <!-- Controles do Carrossel -->
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#eventCarousel"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Anterior</span>
             </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#eventCarousel"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Próximo</span>
             </button>
           </div>
