@@ -41,7 +41,11 @@ export class NewsController {
             });
             res.status(201).json(news)
         } catch (error) {
-            res.status(400).json({ error: (error as Error).message})
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
             
         }
     };
@@ -73,7 +77,11 @@ export class NewsController {
             const news = await this.newsGateway.listNews();
             res.status(200).json(news);
         }   catch (error) {
-            res.status(400).json({ error: (error as Error).message });
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -155,7 +163,11 @@ export class NewsController {
             res.status(200).json(news);
 
         }catch (error) {
-            res.status(400).json({ error: (error as Error).message});
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -188,7 +200,11 @@ export class NewsController {
             await this.newsGateway.deleteNews(id);
             res.status(204).send();
         } catch (error) {
-            res.status(400).json({ error: (error as Error).message})
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
             
         }
     };

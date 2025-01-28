@@ -1,7 +1,5 @@
-import crypto from "crypto";
-
 export type EventProps = { 
-    id: string;
+    id?: string;
     name: string;
     location: string;
     date: Date;
@@ -23,13 +21,14 @@ export class Event {
         price: number,
         ticket?: string,
         status: boolean = true,
-        image?: string
+        image?: string,
+        id?: string
     ): Event {
         if (new Date(date) < new Date()) {
             throw new Error("A data do evento não pode ter passado.");
         }
         return new Event({
-            id: crypto.randomUUID().toString(),
+            id: id || "" ,
             name,
             location,
             date,
@@ -43,8 +42,9 @@ export class Event {
 
 
     public get id(): string {
-        return this.props.id;
+        return this.props.id || ""; 
     }
+
 
     public get name(): string {
         return this.props.name;
@@ -76,6 +76,13 @@ export class Event {
 
     public get image(): string | undefined {
         return this.props.image;
+    }
+
+    public set id(id: string) {
+        if (!id || id.trim().length === 0) {
+            throw new Error("O ID do evento é obrigatório.");
+        }
+        this.props.id = id;
     }
 
     public set name(name: string) {

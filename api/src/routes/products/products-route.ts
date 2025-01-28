@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { ProductController } from "../../controllers/products/productController";
-import { InMemoryProductRepository } from "../../infra/repository/product-repository/product-repository";
+import { PrismaProductRepository } from "../../infra/repository/product-repository/prisma-product-repository";
 
-const productGateway = new InMemoryProductRepository
+const productGateway = new PrismaProductRepository
 const productController = new ProductController(productGateway)
 
 export const productRoutes = () => {

@@ -48,7 +48,11 @@ export class EventController {
             });
             res.status(201).json(event)
         }catch (error) {
-            res.status(400).json({ error: (error as Error).message})
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -78,7 +82,11 @@ export class EventController {
             const event = await this.eventGateway.listEvents();
             res.status(200).json(event);
         }   catch (error) {
-            res.status(400).json({ error: (error as Error).message });
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -118,7 +126,11 @@ export class EventController {
                 res.status(404).json({ error: "Evento não encontrado" });
             }
         } catch (error) {
-            res.status(400).json({error: (error as Error).message});
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -162,7 +174,11 @@ export class EventController {
             res.status(200).json(event);
 
         }catch (error) {
-            res.status(400).json({ error: (error as Error).message});
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -198,8 +214,11 @@ export class EventController {
             await this.eventGateway.deleteEvent(id);
             res.status(204).send();
         } catch (error) {
-            res.status(400).json({ error: (error as Error).message})
-            
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 };

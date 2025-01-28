@@ -47,7 +47,11 @@ export class ProductController {
             });
             res.status(201).json(product);
         } catch (error) {
-            res.status(400).json({ error: (error as Error).message})
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -78,7 +82,11 @@ export class ProductController {
             const products = await this.productGateway.listProducts();
             res.status(200).json(products);
         }   catch (error) {
-            res.status(400).json({ error: (error as Error).message });
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
 
         
@@ -120,7 +128,11 @@ export class ProductController {
                 res.status(404).json({ error: "Produto não encontrado" });
             }
         } catch (error) {
-            res.status(400).json({error: (error as Error).message});
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -164,7 +176,11 @@ export class ProductController {
             res.status(200).json(product);
 
         }catch (error) {
-            res.status(400).json({ error: (error as Error).message});
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
         }
     };
 
@@ -200,7 +216,11 @@ export class ProductController {
             await this.productGateway.deleteProduct(id);
             res.status(204).send();
         } catch (error) {
-            res.status(400).json({ error: (error as Error).message})
+            if (error instanceof Error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: "Erro interno no servidor." });
+            }
             
         }
     };
