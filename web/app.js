@@ -30,6 +30,10 @@ app.get("/loja", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/pages/store.html"))
 });
 
+app.get("/midias", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/pages/media.html"))
+});
+
 app.listen(3000, () => {
     console.log("http://localhost:3000");
 });
