@@ -65,25 +65,51 @@ const musics = [
   },
 ];
 
-const musicList = () => {
-  const musicListContainer = document.getElementById("music-list");
-  musics.forEach((music) => {
-    const item = document.createElement("li");
-    item.classList.add("my-3");
-    item.innerHTML = `<img src="/dist/assets/icons/music_note.svg" alt="note-icon" /> ${music.number} -
-            ${music.title}`;
+const audio = new Audio();
 
-    musicListContainer.appendChild(item);
+const musicList = () => {
+  const ulElements = document.querySelectorAll(".music-list");
+
+  ulElements.forEach((ul) => {
+    ul.innerHTML = "";
+
+    musics.forEach((music) => {
+      const li = document.createElement("li");
+      li.classList.add("text-start", "my-3");
+      li.innerHTML = `${music.number} - ${music.title}`;
+
+      if (music.execute) {
+        li.classList.add("text-primary");
+      }
+
+      li.addEventListener("click", () => {
+        musics.forEach((m) => (m.execute = false));
+        music.execute = true;
+
+        musicList();
+        musicPlayer();
+        audioLoad(music.file);
+
+        audio.oncanplay = () => {
+          const playButton = document.querySelector('.control img[alt="play"]');
+          if (playButton.classList.contains("d-none")) {
+            audio.play();
+          }
+        };
+      });
+
+      ul.appendChild(li);
+    });
   });
 };
 
 const musicPlayer = () => {
+  const musicName = document.getElementById("music-name");
+  const albumName = document.getElementById("album-name");
   const playButton = document.querySelector('.control img[alt="play"]');
   const pauseButton = document.querySelector('.control img[alt="pause"]');
   const nextButton = document.querySelector('.control img[alt="next"]');
   const prevButton = document.querySelector('.control img[alt="prev"]');
-  const musicName = document.getElementById("music-name");
-  const albumName = document.getElementById("album-name");
   const progressBarContainer = document.querySelector(".progress-bar");
   const progressBar = document.querySelector(".progress-bar .progress");
   const currentTimeDisplay = document.querySelector(".current-time");
@@ -91,7 +117,6 @@ const musicPlayer = () => {
   const volumeSlider = document.getElementById("volume-slider");
 
   let currentIndex = musics.findIndex((music) => music.execute);
-  const audio = new Audio();
   let isDragging = false;
 
   const display = () => {
@@ -101,17 +126,16 @@ const musicPlayer = () => {
 
     musicName.textContent = `${currentMusic.number} - ${currentMusic.title}`;
     albumName.textContent = `${currentMusic.album}`;
-    totalTimeDisplay.textContent = currentMusic.duration;
     progressBar.style.width = "0%";
+    totalTimeDisplay.textContent = currentMusic.duration;
     currentTimeDisplay.textContent = "00:00";
-    audio.src = currentMusic.file;
-    audio.load();
+
+    audioLoad(currentMusic.file);
   };
 
   const playMusic = () => {
     pauseButton.classList.remove("d-none");
     playButton.classList.add("d-none");
-
     audio.play();
   };
 
@@ -123,14 +147,41 @@ const musicPlayer = () => {
 
   const nextMusic = () => {
     currentIndex = (currentIndex + 1) % musics.length;
+    musics.forEach((m) => (m.execute = false));
+    musics[currentIndex].execute = true;
+    audioLoad(musics[currentIndex].file);
+
+    audio.oncanplay = () => {
+      if (playButton.classList.contains("d-none")) {
+        audio.play();
+      }
+    };
+
+    musicList();
     display();
-    playMusic();
   };
+
   const prevMusic = () => {
     currentIndex = (currentIndex - 1 + musics.length) % musics.length;
+    musics.forEach((m) => (m.execute = false));
+    musics[currentIndex].execute = true;
+    audioLoad(musics[currentIndex].file);
+
+    audio.oncanplay = () => {
+      if (playButton.classList.contains("d-none")) {
+        audio.play();
+      }
+    };
+
+    musicList();
     display();
-    playMusic();
   };
+
+  if (playButton) playButton.addEventListener("click", playMusic);
+  if (pauseButton) pauseButton.addEventListener("click", pauseMusic);
+
+  nextButton.addEventListener("click", nextMusic);
+  prevButton.addEventListener("click", prevMusic);
 
   audio.addEventListener("timeupdate", () => {
     const progress = (audio.currentTime / audio.duration) * 100;
@@ -178,19 +229,16 @@ const musicPlayer = () => {
   volumeSlider.addEventListener("input", (event) => {
     const volume = event.target.value / 100;
     audio.volume = volume;
-
-    let line = document.querySelector(".line");
-    line.style.width = volume;
   });
 
   audio.volume = volumeSlider.value / 100;
 
-  if (playButton) playButton.addEventListener("click", playMusic);
-  if (pauseButton) pauseButton.addEventListener("click", pauseMusic);
-  if (nextButton) nextButton.addEventListener("click", nextMusic);
-  if (prevButton) prevButton.addEventListener("click", prevMusic);
-
   display();
+};
+
+const audioLoad = (file) => {
+  audio.src = file;
+  audio.load();
 };
 
 musicPlayer();

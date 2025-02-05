@@ -1,31 +1,153 @@
-.container-section {
-  width: 65%;
-  .player-music {
-    border-radius: 10px;
-    height: 100%;
-    position: relative;
-    @media (min-width: 992px) {
-      border-radius: 100px 0 0 100px;
-      height: 50%;
-    }
+.main-container {
+  padding: 2rem;
+  overflow-x: hidden;
 
-    .control {
-      width: 100%;
+  @media (min-width: 992px) {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+
+    .container-play {
       display: flex;
-      justify-content: space-around;
-      align-items: center;
+      align-items: end;
+      gap: 2rem;
 
-      img {
-        max-width: 10%;
-        height: auto;
-        transition: transform 0.3s ease;
+      flex-direction: column;
+      width: 100%;
 
-        @media (min-width: 992px) {
-          max-width: 75%;
+      .streamer {
+        width: 85%;
+        height: 20%;
+        ul {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 100%;
+
+          li {
+            height: 100%;
+
+            a {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-between;
+            }
+
+            img {
+              margin: auto;
+            }
+          }
         }
+      }
+    }
+  }
 
-        &:hover {
-          transform: scale(1.1);
+  .play-list {
+    display: none;
+
+    @media (min-width: 992px) {
+      display: block;
+      text-align: center;
+      background-color: $dark;
+      color: $light;
+      width: 25%;
+      height: 85%;
+      border-radius: 0 3rem 3rem 0;
+      font-weight: bold;
+      padding: 1.5rem;
+
+      h1 {
+        font-weight: bold;
+      }
+
+      select {
+        width: 75%;
+        padding: 0.5rem;
+        text-align: center;
+        outline: none;
+        border-radius: 0.5rem;
+        background-color: $primary;
+        color: $light;
+        font-weight: bold;
+        margin: 1rem 0;
+      }
+
+      ul {
+        list-style: none;
+        color: $secondary;
+        cursor: pointer;
+
+        li:hover {
+          color: $light;
+          transition: color 0.3s;
+        }
+      }
+    }
+  }
+
+  .music-play {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $dark;
+    width: 100%;
+    border-radius: 2rem;
+    padding: 2rem;
+
+    @media (min-width: 992px) {
+      width: 85%;
+      height: 60%;
+      border-radius: 3rem 0 0 3rem;
+
+      .container-display {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .container-controls {
+          width: 100%;
+          display: flex;
+          position: relative;
+
+          .container-info {
+            text-align: center;
+            flex-grow: 1;
+
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+          }
+
+          .control {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+          }
+
+          .volume-control {
+            transform: rotate(270deg);
+            display: flex;
+
+            #volume-slider {
+              appearance: none;
+              align-self: center;
+              height: 4px;
+              background-color: $secondary;
+            }
+
+            #volume-slider::-webkit-slider-thumb {
+              appearance: none;
+              width: 20px;
+              height: 20px;
+              background-color: $primary;
+              border-radius: 50%;
+            }
+          }
         }
       }
     }
@@ -34,10 +156,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 80%;
-      margin: 2rem auto;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
+      width: 100%;
+      margin: 1rem;
       color: $light;
 
       .current-time,
@@ -55,7 +175,6 @@
         margin: 0 10px;
 
         .progress {
-          height: 100%;
           background-color: $primary;
           border-radius: 4px;
           transition: width 0.3s ease;
@@ -63,78 +182,68 @@
       }
     }
 
-    .music-list {
-      ul {
-        max-height: 200px;
-        overflow-y: auto;
-        padding-right: 10px;
-        scrollbar-width: thin;
-        scrollbar-color: $primary $secondary;
+    .container-controls {
+      width: 100%;
 
-        &::-webkit-scrollbar {
-          width: 8px;
-        }
+      .container-info {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+      }
 
-        &::-webkit-scrollbar-thumb {
-          background-color: $primary;
-          border-radius: 10px;
-        }
+      .control {
+        display: flex;
+        gap: 2.5rem;
+        justify-content: center;
 
-        &::-webkit-scrollbar-track {
-          background-color: $secondary;
+        img {
+          width: 2rem;
         }
+      }
+
+      .volume-control {
+        display: none;
       }
     }
 
-    /* Estilizar o input de volume */
-    .volume-control {
-      display: flex;
-      justify-content: center;
-      transform: rotate(270deg);
-      position: absolute;
-      top: 20%;
+    .play-list-mobile {
+      display: block;
+      width: 100%;
+      color: $light;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
 
-      right: -10%;
-
-      @media (min-width: 668px) {
-        right: -5%;
+      h1 {
+        font-weight: bold;
       }
 
-      @media (min-width: 768px) {
-        right: 0%;
+      select {
+        width: 75%;
+        padding: 0.5rem;
+        text-align: center;
+        outline: none;
+        border-radius: 0.5rem;
+        background-color: $primary;
+        color: $light;
+        font-weight: bold;
+        margin: 0.75rem 0;
+      }
+
+      ul {
+        list-style: none;
+        color: $secondary;
+        cursor: pointer;
+
+        li:hover {
+          color: $light;
+          transition: color 0.3s;
+        }
       }
 
       @media (min-width: 992px) {
-        top: 40%;
-        right: 0;
+        display: none;
       }
     }
-
-    #volume-slider {
-      appearance: none;
-      height: 4px;
-      background-color: $secondary;
-    }
-
-    #volume-slider::-webkit-slider-thumb {
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      background-color: $primary;
-      border-radius: 50%;
-    }
-  }
-
-  .streamer {
-    height: 25%;
-  }
-}
-
-.play-list {
-  width: 20%;
-  border-radius: 10px;
-
-  @media (min-width: 992px) {
-    border-radius: 0 100px 100px 0;
   }
 }
