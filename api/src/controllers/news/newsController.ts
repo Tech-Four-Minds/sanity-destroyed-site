@@ -1,18 +1,22 @@
 import { Response, Request } from "express";
-import { NewsGateway } from "../../domain/gateway/news.gateway";
+import { PrismaNewRepository } from "../../infra/repository/new-repository/prisma-news-repository";
 
 export class NewsController {
-    private newsGateway: NewsGateway;
 
-    constructor(newsGateway: NewsGateway){
-        this.newsGateway = newsGateway
-    };
+    private newsGateway: PrismaNewRepository;
+
+    constructor() {
+        this.newsGateway = new PrismaNewRepository()
+    }
+    
 
      /**
      * @swagger
      * /news:
      *   post:
      *     summary: Cria uma nova notícia.
+     *     security:
+     *       - Auth: []
      *     description: Adiciona uma nova notícia ao banco de dados.
      *     tags:
      *       - Notícias
@@ -129,6 +133,8 @@ export class NewsController {
      * /news/{id}:
      *   put:
      *     summary: Atualiza uma notícia existente.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Notícias
      *     parameters:
@@ -176,6 +182,8 @@ export class NewsController {
      * /news/{id}:
      *   delete:
      *     summary: Deleta uma notícia por ID.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Notícias
      *     parameters:

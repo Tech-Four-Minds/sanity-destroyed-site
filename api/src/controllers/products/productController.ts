@@ -1,19 +1,23 @@
 import { Request, Response } from "express";
-import { ProductGateway } from "../../domain/gateway/products.gateway";
+import { PrismaProductRepository } from "../../infra/repository/product-repository/prisma-product-repository";
 
 
 export class ProductController {
-    private productGateway: ProductGateway;
-    
-    constructor(productGateway: ProductGateway) {
-        this.productGateway = productGateway;
+
+    private productGateway: PrismaProductRepository;
+
+    constructor() {
+        this.productGateway = new PrismaProductRepository();
     }
+
 
      /**
      * @swagger
      * /products:
      *   post:
      *     summary: Cria um novo produto.
+     *     security:
+     *       - Auth: []
      *     description: Adiciona um novo produto ao banco de dados.
      *     tags:
      *       - Produtos
@@ -141,6 +145,8 @@ export class ProductController {
      * /products/{id}:
      *   put:
      *     summary: Atualiza um produto existente.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Produtos
      *     parameters:
@@ -189,6 +195,8 @@ export class ProductController {
      * /products/{id}:
      *   delete:
      *     summary: Deleta um produto por ID.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Produtos
      *     parameters:

@@ -1,18 +1,21 @@
 import { Request, Response } from "express";
-import { EventGateway } from "../../domain/gateway/event.gateway";
+import { PrismaEventRepository } from "../../infra/repository/event-repository/prisma-event-repository";
 
 export class EventController {
-    private eventGateway: EventGateway;
 
-    constructor(eventGateway: EventGateway){
-        this.eventGateway = eventGateway;
+    private eventGateway: PrismaEventRepository;
+
+    constructor() {
+        this.eventGateway = new PrismaEventRepository();
     }
-
-    /**
+    
+/**
  * @swagger
  * /events:
  *   post:
  *     summary: Cria um novo evento.
+ *     security:
+ *       - Auth: []
  *     description: Adiciona um novo evento ao banco de dados.
  *     tags:
  *       - Eventos
@@ -139,6 +142,8 @@ export class EventController {
      * /events/{id}:
      *   put:
      *     summary: Atualiza um evento existente.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Eventos
      *     parameters:
@@ -187,6 +192,8 @@ export class EventController {
      * /events/{id}:
      *   delete:
      *     summary: Deleta um evento por ID.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Eventos
      *     parameters:

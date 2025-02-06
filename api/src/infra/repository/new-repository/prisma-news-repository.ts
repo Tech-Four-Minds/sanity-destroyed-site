@@ -14,7 +14,7 @@ export class PrismaNewRepository implements NewsGateway {
     const createdNews = await prisma.new.create({
       data: {
         name: newNews.name,
-        date: newNews.date,
+        date: newNews.date instanceof Date ? newNews.date : new Date(newNews.date),
         description: newNews.description,
       },
     });

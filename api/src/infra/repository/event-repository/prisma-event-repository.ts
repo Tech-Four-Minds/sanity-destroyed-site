@@ -22,7 +22,7 @@ export class PrismaEventRepository implements EventGateway {
             data: {
                 name: event.name,
                 location: event.location,
-                date: event.date,
+                date: event.date ?  new Date(event.date).toISOString() : new Date().toISOString(),
                 schedule: event.schedule,
                 price: event.price,
                 ticket: event.ticket || undefined, 
