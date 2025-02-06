@@ -89,7 +89,18 @@
         </div>
 
         <section class="container mt-5" id="products">
-          <h2 class="mb-4 fw-bold">Produtos</h2>
+          <!-- cabeçalho da seção loja -->
+          <header class="d-flex justify-content-between align-items-center w-100 mb-4">
+            <h2 class="mb-4 fw-bold">Produtos</h2>
+            
+            <button class="p-1 border border-4 border-dark rounded-3 position-relative mx-2">
+              <img src="dist/assets/icons/cart.svg" alt="carrinho de compras" class="cart">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                99+
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
+          </header>
           <div class="row">
             
             <!-- Card 1 -->

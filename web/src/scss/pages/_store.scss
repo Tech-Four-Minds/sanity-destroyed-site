@@ -6,32 +6,44 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.cart{
+    height: 1.5rem;
+}
+
 .info-product{
     bottom: 1%;
     width: 90%;
-}
-.font-discount {
-    font-size: .5rem;
-}
-.font-name-product{
-    font-size: .7rem;
-}
-
-@media (min-width: 576px) { 
-    .font-name-product{
-        font-size: .8rem;
-    }
-
     .font-discount {
         font-size: .5rem;
+    }
+    
+    .font-name-product{
+        font-size: .7rem;
+    }
+}
+
+
+@media (min-width: 576px) { 
+    
+    .info-product{
+        .font-name-product{
+            font-size: .8rem;
+        }
+    
+        .font-discount {
+            font-size: .5rem;
+        }
     }
 }
 
 @media (min-width: 1200px) { 
-    .font-name-product{
-        font-size: 1rem;
-    } 
-    .font-discount {
-        font-size: .7rem;
+    
+    .info-product{
+        .font-name-product{
+            font-size: 1.5rem;
+        } 
+        .font-discount {
+            font-size: .7rem;
+        }
     }
 }
