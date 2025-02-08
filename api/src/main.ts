@@ -2,9 +2,12 @@ import "dotenv/config"
 import express, { Application } from "express";
 import { productRoutes } from "./routes/products/products-route";
 import { eventRoutes } from "./routes/events/events-route";
-import { newsRouter } from "./routes/news/news-route";
+import { newsRoutes } from "./routes/news/news-route";
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpecs } from "./swagger-config";
+import { userRoutes } from "./routes/users/users-route";
+import { authRoutes } from "./routes/users/authenticate-route";
+import { authenticateRequest } from "./infra/middlewares/authenticateRequest";
 
 
 const app: Application = express();
@@ -15,7 +18,10 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs))
 
 app.use("/api", productRoutes());
 app.use("/api", eventRoutes());
-app.use("/api", newsRouter());
+app.use("/api", newsRoutes());
+app.use("/api", userRoutes());
+app.use("/api", authRoutes());
+app.use(authenticateRequest); 
 
 const PORT = process.env.PORT || 3333;
 

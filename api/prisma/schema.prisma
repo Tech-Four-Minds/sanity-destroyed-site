@@ -11,7 +11,7 @@ model Event {
   id       String   @id @default(uuid())
   name     String
   location String
-  date     DateTime
+  date     DateTime 
   schedule String
   price    Float
   ticket   String?
@@ -40,4 +40,12 @@ model New {
   description String
 
   @@map("news")
+}
+
+model User {
+  id         String @id @default(uuid())
+  username   String 
+  password   String 
+
+  @@map("users")
 }

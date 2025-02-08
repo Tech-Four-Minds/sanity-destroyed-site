@@ -1,19 +1,18 @@
 import { Router } from "express";
 import { NewsController } from "../../controllers/news/newsController";
-import { PrismaNewRepository } from "../../infra/repository/new-repository/prisma-news-repository";
+import { authenticateRequest } from "../../infra/middlewares/authenticateRequest";
 
-const newsGateway = new PrismaNewRepository
-const newsController= new NewsController(newsGateway)
+export const newsRoutes = () => {
 
-export const newsRouter = () => {
+    const newsController = new NewsController();
 
     const routerNews = Router();
 
-    routerNews.post("/news/", newsController.createNews.bind(newsController));
+    routerNews.post("/news/", authenticateRequest ,newsController.createNews.bind(newsController));
     routerNews.get("/news/", newsController.listNews.bind(newsController));
     routerNews.get("/news/:id", newsController.getNewsById.bind(newsController));
-    routerNews.put("/news/:id", newsController.updateNews.bind(newsController));
-    routerNews.delete("/news/:id", newsController.deleteNews.bind(newsController));
+    routerNews.put("/news/:id", authenticateRequest ,newsController.updateNews.bind(newsController));
+    routerNews.delete("/news/:id", authenticateRequest ,newsController.deleteNews.bind(newsController));
 
     return routerNews;
 
