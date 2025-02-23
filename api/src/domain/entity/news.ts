@@ -4,16 +4,18 @@ export type NewsProps ={
     name: string;
     date: Date;
     description: string;
+    image?: Buffer;
 };
 export class News {
     private constructor(private props: NewsProps){}
 
-    public static create(name: string, date: Date, description:string, IdNews?: string){
+    public static create(name: string, date: Date, description:string, image?: Buffer ,IdNews?: string,){
         return new News({
             IdNews: IdNews || "",
             name,
             date,
             description,
+            image
         });
     }
 
@@ -34,6 +36,10 @@ export class News {
 
     public get description(): string{
         return this.props.description
+    }
+    
+    public get image(): Buffer | undefined {
+        return this.props.image;
     }
 
    
@@ -58,6 +64,12 @@ export class News {
         const normalizedDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         this.props.date = normalizedDate;
     }
+
+    public set image(value: Buffer | undefined) {
+        this.props.image = value;
+    }
+
+
     
     
     

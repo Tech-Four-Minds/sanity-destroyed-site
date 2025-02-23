@@ -67,7 +67,7 @@ const swaggerOption = {
                         price: { type: "number", example: 100.50 },
                         ticket: { type: "string", example: "ingressos.com" },
                         status: { type: "boolean", example: true },
-                        image: { type: "string", example: "http://example.com/evento.jpg" },
+                        image: { type: "string",format: "binary" , example: "http://example.com/evento.jpg" },
                     },
                 },
                 Noticias: {

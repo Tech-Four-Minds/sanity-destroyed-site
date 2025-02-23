@@ -16,7 +16,7 @@ model Event {
   price    Float
   ticket   String?
   status   Boolean
-  image    String?
+  image    Bytes?
 
   @@map("events")
 }
@@ -26,9 +26,9 @@ model Product {
   name     String
   price    Float
   type     String
-  size     String
+  size     String 
   quantity Int
-  image    String?
+  image    Bytes?
 
   @@map("products")
 }
@@ -38,6 +38,7 @@ model New {
   name        String
   date        DateTime
   description String
+  image       Bytes?
 
   @@map("news")
 }

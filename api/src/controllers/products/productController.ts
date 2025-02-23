@@ -1,5 +1,12 @@
+import multer from "multer";
 import { Request, Response } from "express";
 import { PrismaProductRepository } from "../../infra/repository/product-repository/prisma-product-repository";
+
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage }).single('image');
+
+
 
 
 export class ProductController {
@@ -38,15 +45,25 @@ export class ProductController {
 
 
     async createProduct (req: Request, res: Response): Promise<void> {
+        upload(req, res, async (err: any) => {
+            if (err) {
+                return res.status(400).json({ error: "Erro no upload da imagem." });
+            }
+
+
         const {name, price, type, size, quantity, image } = req.body;
+        const imageBuffer = req.file?.buffer;
+        const priceFloat = parseFloat(price)
+        const priceInt = parseInt(price)
+
         try {
             const product = await this.productGateway.createProduct({
                 name,
-                price,
+                price: priceFloat,
                 type,
                 size,
-                quantity,
-                image,
+                quantity: priceInt,
+                image: imageBuffer,
 
             });
             res.status(201).json(product);
@@ -57,6 +74,7 @@ export class ProductController {
                 res.status(500).json({ error: "Erro interno no servidor." });
             }
         }
+        });
     };
 
     /**
@@ -81,20 +99,26 @@ export class ProductController {
      *         description: Erro interno no servidor.
      */
 
-    async listProducts (req: Request, res: Response): Promise<void> {
+    async listProducts(req: Request, res: Response): Promise<void> {
         try {
             const products = await this.productGateway.listProducts();
-            res.status(200).json(products);
-        }   catch (error) {
+    
+            const productsWithBase64Images = products.map(product => ({
+                ...product,
+                imageSizeKB: product.image ? (product.image.length / 1024).toFixed(2) + " KB" : "0 KB",
+                image: product.image ? `data:image/;base64,${Buffer.from(product.image).toString("base64")}` : null
+            }));
+    
+            res.status(200).json(productsWithBase64Images);
+        } catch (error) {
             if (error instanceof Error) {
                 res.status(400).json({ error: error.message });
             } else {
                 res.status(500).json({ error: "Erro interno no servidor." });
             }
         }
-
-        
-    };
+    }
+    
 
     /**
      * @swagger
@@ -123,11 +147,18 @@ export class ProductController {
 
     async getProductById(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-
+    
         try {
             const product = await this.productGateway.getProductById(id);
+    
             if (product) {
-                res.status(200).json(product);
+                const productWithBase64Image = {
+                    ...product,
+                    imageSizeKB: product.image ? (product.image.length / 1024).toFixed(2) + " KB" : "0 KB",
+                    image: product.image ? `data:image/;base64,${Buffer.from(product.image).toString("base64")}` : null
+                };
+    
+                res.status(200).json(productWithBase64Image);
             } else {
                 res.status(404).json({ error: "Produto não encontrado" });
             }
@@ -138,7 +169,8 @@ export class ProductController {
                 res.status(500).json({ error: "Erro interno no servidor." });
             }
         }
-    };
+    }
+    
 
     /**
      * @swagger
@@ -173,15 +205,31 @@ export class ProductController {
      *         description: Erro interno no servidor.
      */
 
-    async updateProduct (req: Request, res: Response): Promise<void> {
+    async updateProduct(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         const data = req.body;
-
+        const imageBuffer = req.file?.buffer;
+        
+        const price = data.price ? parseFloat(data.price) : undefined;
+    
+        
+        const quantity = data.quantity ? parseInt(data.quantity) : undefined;
+    
+        
+        const updatedData: any = {};
+    
+        if (price !== undefined) updatedData.price = price;
+        if (quantity !== undefined) updatedData.quantity = quantity;
+        if (imageBuffer) updatedData.image = imageBuffer;
+        if (data.name) updatedData.name = data.name;
+        if (data.type) updatedData.type = data.type;
+        if (data.size) updatedData.size = data.size;
+    
         try {
-            const product = await this.productGateway.updateProduct(id, data);
+            const product = await this.productGateway.updateProduct(id, updatedData);
             res.status(200).json(product);
-
-        }catch (error) {
+    
+        } catch (error) {
             if (error instanceof Error) {
                 res.status(400).json({ error: error.message });
             } else {
@@ -189,6 +237,7 @@ export class ProductController {
             }
         }
     };
+    
 
     /**
      * @swagger
