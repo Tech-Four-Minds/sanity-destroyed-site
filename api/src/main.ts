@@ -1,4 +1,5 @@
 import "dotenv/config"
+import cors from "cors";
 import express, { Application } from "express";
 import cors from "cors";
 import { productRoutes } from "./routes/products/products-route";
@@ -15,6 +16,8 @@ const app: Application = express();
 app.use(cors())
 
 app.use(express.json());
+app.use(cors());
+
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs))
 

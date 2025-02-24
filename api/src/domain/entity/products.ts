@@ -5,7 +5,7 @@ export type ProductProps = {
     type: string
     size: string
     quantity: number
-    image?: string 
+    image?: Buffer 
 }
 
 export class Product {
@@ -18,7 +18,7 @@ export class Product {
         type: string, 
         size: string, 
         quantity: number,
-        image?: string,
+        image?: Buffer,
         id?: string
     ): Product {
 
@@ -81,8 +81,8 @@ export class Product {
         return this.props.quantity
     }
 
-    public get image(){
-        return this.props.image
+    public get image(): Buffer | undefined {
+        return this.props.image;
     }
 
     public set name(value: string) {
@@ -117,7 +117,7 @@ export class Product {
         this.props.quantity = value;
     }
 
-    public set image(value: string | undefined) {
+    public set image(value: Buffer | undefined) {
         this.props.image = value;
     }
 
