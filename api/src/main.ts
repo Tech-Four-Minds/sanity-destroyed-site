@@ -1,6 +1,7 @@
 import "dotenv/config"
 import cors from "cors";
 import express, { Application } from "express";
+import cors from "cors";
 import { productRoutes } from "./routes/products/products-route";
 import { eventRoutes } from "./routes/events/events-route";
 import { newsRoutes } from "./routes/news/news-route";
@@ -12,6 +13,7 @@ import { authenticateRequest } from "./infra/middlewares/authenticateRequest";
 
 
 const app: Application = express();
+app.use(cors())
 
 app.use(express.json());
 app.use(cors());
