@@ -8,7 +8,7 @@ CREATE TABLE "events" (
     "price" DOUBLE PRECISION NOT NULL,
     "ticket" TEXT,
     "status" BOOLEAN NOT NULL,
-    "image" TEXT,
+    "image" BYTEA,
 
     CONSTRAINT "events_pkey" PRIMARY KEY ("id")
 );
@@ -21,7 +21,7 @@ CREATE TABLE "products" (
     "type" TEXT NOT NULL,
     "size" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL,
-    "image" TEXT,
+    "image" BYTEA,
 
     CONSTRAINT "products_pkey" PRIMARY KEY ("id")
 );
@@ -32,6 +32,7 @@ CREATE TABLE "news" (
     "name" TEXT NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
     "description" TEXT NOT NULL,
+    "image" BYTEA,
 
     CONSTRAINT "news_pkey" PRIMARY KEY ("id")
 );
