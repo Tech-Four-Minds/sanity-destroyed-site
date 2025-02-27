@@ -13,7 +13,7 @@ export const eventRoutes = () => {
 
     const routerEvent = Router();
 
-    routerEvent.post("/events/", authenticateRequest ,eventController.createEvent.bind(eventController));
+    routerEvent.post("/events/", eventController.createEvent.bind(eventController));
     routerEvent.get("/events/", eventController.listEvents.bind(eventController));
     routerEvent.get("/events/:id", eventController.getEventById.bind(eventController));
     routerEvent.put("/events/:id", authenticateRequest, upload ,eventController.updateEvent.bind(eventController));
