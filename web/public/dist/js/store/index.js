@@ -14,7 +14,16 @@ async function renderProducts() {
   const productList = document.getElementById("product-list");
   const products = await getProducts();
 
-  console.log(products);
+  if (products.length === 0) {
+    productList.innerHTML = `
+      <div class="col-12 text-center">
+        <h3 class="text-dark">Nenhum produto disponível no momento.</h3>
+        <p class="text-secondary">Volte em breve para conferir nossas novidades!</p>
+      </div>
+    `;
+    return;
+  }
+
 
   productList.innerHTML = products.map(
     (product) => `

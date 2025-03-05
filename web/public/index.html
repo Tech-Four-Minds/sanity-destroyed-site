@@ -84,53 +84,40 @@
 
       <!-- Seção Agenda -->
       <div class="px-2 py-5 h-75 w-100">
-        <div class="container-lg container-fluid  bg-dark text-light h-100 rounded-5 p-4">
+        <div
+          class="container-lg container-fluid bg-dark text-light h-100 rounded-5 p-4"
+        >
           <h2 class="text-center mb-4">Agenda</h2>
-          <div id="eventCarousel" class="carousel slide pointer-event" data-bs-ride="carousel" style="min-height: 684px;">
-            <div class="carousel-inner">
-              <!-- Evento 1 -->
-              <div class="carousel-item">
-                <div class="card bg-dark text-light border-light mx-auto card-post">
-                  <img src="/dist/assets/images/peso-do-batuque.png" class="rounded-top img-fluid" alt="Peso do Batuque">
-                  <div class="card-body">
-                    <h5 class="card-title text-primary fw-bold">
-                      Peso do Batuque
-                    </h5>
-                    <p class="card-text">
-                      <strong>Data:</strong> 01 de fevereiro de 2025<br>
-                      <strong>Local:</strong> Caravela Cultural, João Pessoa -
-                      PB<br>
-                      <strong>Bilheteria:</strong>
-                      <a href="#" class="text-light" target="_blank">Sympla</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- Evento 2 -->
-              <div class="carousel-item active">
-                <div class="card bg-dark text-light border-light mx-auto card-post">
-                  <img src="/dist/assets/images/garden-of-metal.png" class="rounded-top" alt="Garden of Metal">
-                  <div class="card-body">
-                    <h5 class="card-title text-primary fw-bold">
-                      Garden of Metal
-                    </h5>
-                    <p class="card-text">
-                      <strong>Data:</strong> 22 de fevereiro de 2025<br>
-                      <strong>Local:</strong> Jardim das Acácias, Jaboatão dos
-                      Guararapes - PE<br>
-                      <strong>Ingressos:</strong> R$ 20,00
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div
+            id="eventCarousel"
+            class="carousel slide pointer-event"
+            data-bs-ride="carousel"
+            style="min-height: 684px"
+          >
+            <div id="event-list" class="carousel-inner"></div>
             <!-- Controles do Carrossel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#eventCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#eventCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Próximo</span>
             </button>
           </div>
@@ -143,35 +130,7 @@
         class="container h-100 d-flex flex-column align-items-start justify-content-center"
       >
         <h1 class="text-dark fw-bold mb-4">Notícias</h1>
-        <div class="row">
-          <article class="col-md-4 mb-4">
-            <img
-              class="img-fluid rounded"
-              src="./dist/assets/images/news-1.png"
-              alt="Sanity Destroyed Processa Site Metal Archives!"
-            />
-            <p>17 de Dezembro de 2024</p>
-            <h2 class="fs-5">Sanity Destroyed Processa Site Metal Archives!</h2>
-          </article>
-          <article class="col-md-4 mb-4">
-            <img
-              class="img-fluid rounded"
-              src="./dist/assets/images/news-2.png"
-              alt="Make Off do Clip"
-            />
-            <p>17 de Dezembro de 2024</p>
-            <h2 class="fs-5">Make Off do Clip</h2>
-          </article>
-          <article class="col-md-4 mb-4">
-            <img
-              class="img-fluid rounded"
-              src="./dist/assets/images/news-1.png"
-              alt="Sanity Destroyed Processa Site Metal Archives!"
-            />
-            <p>17 de Dezembro de 2024</p>
-            <h2 class="fs-5">Sanity Destroyed Processa Site Metal Archives!</h2>
-          </article>
-        </div>
+        <div id="new-list" class="row"></div>
       </section>
 
       <!-- Seção Loja -->
@@ -181,12 +140,22 @@
             class="d-flex justify-content-center align-items-start h-100 flex-column"
           >
             <!-- cabeçalho da seção loja -->
-            <header class="d-flex justify-content-between align-items-center w-100 mt-4">
+            <header
+              class="d-flex justify-content-between align-items-center w-100 mt-4"
+            >
               <h1 class="my-5 text-dark fw-bold text-center">LOJA</h1>
-              
-              <button class="p-1 border border-4 border-dark rounded-3 position-relative mx-2">
-                <img src="dist/assets/icons/cart.svg" alt="carrinho de compras" class="cart">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+              <button
+                class="p-1 border border-4 border-dark rounded-3 position-relative mx-2"
+              >
+                <img
+                  src="dist/assets/icons/cart.svg"
+                  alt="carrinho de compras"
+                  class="cart"
+                />
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
                   99+
                   <span class="visually-hidden">unread messages</span>
                 </span>
@@ -198,169 +167,7 @@
               class="carousel slide w-100"
               data-bs-ride="carousel"
             >
-              <div class="carousel-inner">
-                <!-- Primeiro Slide -->
-                <div class="carousel-item active">
-                  <div class="row d-flex justify-content-center">
-                    
-                    <!-- Card 1 -->
-                    <div class="col-6 col-md-4 col-lg-3 mb-2">
-                      <div class="position-relative">
-                        <!-- Imagem de fundo -->
-                        <img src="../dist/assets/images/fundoItens.png" alt="Fundo" class="img-fluid w-100">
-                
-                        <!-- Retângulo branco com a imagem do produto -->
-                        <div class="position-absolute top-0 start-50 translate-middle-x white-background">
-                          <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <img src="../dist/assets/images/produto.png" alt="Produto" class="img-fluid mx-auto d-block">
-                          </div>
-                        </div>
-                
-                        <!-- Informações do produto -->
-                        <div class="position-absolute start-50 translate-middle-x info-product">
-                          <h5 class="fw-bold text-light font-name-product mb-sm-2">CAMISETA SANITY</h5>
-                          <div class="d-flex gap-1 font-discount">
-                            <p class="card-text fw-semibold text-light bg-primary px-1 px-sm-3 rounded-1 ">DESCONTO 50% OFF</p>
-                            <p class="text-light">DE <span class="text-decoration-line-through"><span class="fw-bold text-primary">R$</span class="fst-normal"> 80,00</span></p>
-                          </div>
-                          <p class="fw-bold fs-4 text-light"><span class="fs-6 text-primary">R$</span> 40,00</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Card 2 -->
-                    <div class="col-6 col-md-4 col-lg-3 mb-2">
-                      <div class="position-relative">
-                        <!-- Imagem de fundo -->
-                        <img src="../dist/assets/images/fundoItens.png" alt="Fundo" class="img-fluid w-100">
-                
-                        <!-- Retângulo branco com a imagem do produto -->
-                        <div class="position-absolute top-0 start-50 translate-middle-x white-background">
-                          <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <img src="../dist/assets/images/produto.png" alt="Produto" class="img-fluid mx-auto d-block">
-                          </div>
-                        </div>
-                
-                        <!-- Informações do produto -->
-                        <div class="position-absolute start-50 translate-middle-x info-product">
-                          <h5 class="fw-bold text-light font-name-product mb-sm-2">CAMISETA SANITY</h5>
-                          <div class="d-flex gap-1 font-discount">
-                            <p class="card-text fw-semibold text-light bg-primary px-1 px-sm-3 rounded-1 ">DESCONTO 50% OFF</p>
-                            <p class="text-light">DE <span class="text-decoration-line-through"><span class="fw-bold text-primary">R$</span class="fst-normal"> 80,00</span></p>
-                          </div>
-                          <p class="fw-bold fs-4 text-light"><span class="fs-6 text-primary">R$</span> 40,00</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Card 3 -->
-                    <div class="col-6 col-md-4 col-lg-3 mb-2">
-                      <div class="position-relative">
-                        <!-- Imagem de fundo -->
-                        <img src="../dist/assets/images/fundoItens.png" alt="Fundo" class="img-fluid w-100">
-                
-                        <!-- Retângulo branco com a imagem do produto -->
-                        <div class="position-absolute top-0 start-50 translate-middle-x white-background">
-                          <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <img src="../dist/assets/images/produto.png" alt="Produto" class="img-fluid mx-auto d-block">
-                          </div>
-                        </div>
-                
-                        <!-- Informações do produto -->
-                        <div class="position-absolute start-50 translate-middle-x info-product">
-                          <h5 class="fw-bold text-light font-name-product mb-sm-2">CAMISETA SANITY</h5>
-                          <div class="d-flex gap-1 font-discount">
-                            <p class="card-text fw-semibold text-light bg-primary px-1 px-sm-3 rounded-1 ">DESCONTO 50% OFF</p>
-                            <p class="text-light">DE <span class="text-decoration-line-through"><span class="fw-bold text-primary">R$</span class="fst-normal"> 80,00</span></p>
-                          </div>
-                          <p class="fw-bold fs-4 text-light"><span class="fs-6 text-primary">R$</span> 40,00</p>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="row d-flex justify-content-center">
-                    
-                    <!-- Card 4 -->
-                    <div class="col-6 col-md-4 col-lg-3 mb-2">
-                      <div class="position-relative">
-                        <!-- Imagem de fundo -->
-                        <img src="../dist/assets/images/fundoItens.png" alt="Fundo" class="img-fluid w-100">
-                
-                        <!-- Retângulo branco com a imagem do produto -->
-                        <div class="position-absolute top-0 start-50 translate-middle-x white-background">
-                          <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <img src="../dist/assets/images/produto.png" alt="Produto" class="img-fluid mx-auto d-block">
-                          </div>
-                        </div>
-                
-                        <!-- Informações do produto -->
-                        <div class="position-absolute start-50 translate-middle-x info-product">
-                          <h5 class="fw-bold text-light font-name-product mb-sm-2">CAMISETA SANITY</h5>
-                          <div class="d-flex gap-1 font-discount">
-                            <p class="card-text fw-semibold text-light bg-primary px-1 px-sm-3 rounded-1 ">DESCONTO 50% OFF</p>
-                            <p class="text-light">DE <span class="text-decoration-line-through"><span class="fw-bold text-primary">R$</span class="fst-normal"> 80,00</span></p>
-                          </div>
-                          <p class="fw-bold fs-4 text-light"><span class="fs-6 text-primary">R$</span> 40,00</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="col-6 col-md-4 col-lg-3 mb-2">
-                      <div class="position-relative">
-                        <!-- Imagem de fundo -->
-                        <img src="../dist/assets/images/fundoItens.png" alt="Fundo" class="img-fluid w-100">
-                
-                        <!-- Retângulo branco com a imagem do produto -->
-                        <div class="position-absolute top-0 start-50 translate-middle-x white-background">
-                          <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <img src="../dist/assets/images/produto.png" alt="Produto" class="img-fluid mx-auto d-block">
-                          </div>
-                        </div>
-                
-                        <!-- Informações do produto -->
-                        <div class="position-absolute start-50 translate-middle-x info-product">
-                          <h5 class="fw-bold text-light font-name-product mb-sm-2">CAMISETA SANITY</h5>
-                          <div class="d-flex gap-1 font-discount">
-                            <p class="card-text fw-semibold text-light bg-primary px-1 px-sm-3 rounded-1 ">DESCONTO 50% OFF</p>
-                            <p class="text-light">DE <span class="text-decoration-line-through"><span class="fw-bold text-primary">R$</span class="fst-normal"> 80,00</span></p>
-                          </div>
-                          <p class="fw-bold fs-4 text-light"><span class="fs-6 text-primary">R$</span> 40,00</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="col-6 col-md-4 col-lg-3 mb-2">
-                      <div class="position-relative">
-                        <!-- Imagem de fundo -->
-                        <img src="../dist/assets/images/fundoItens.png" alt="Fundo" class="img-fluid w-100">
-                
-                        <!-- Retângulo branco com a imagem do produto -->
-                        <div class="position-absolute top-0 start-50 translate-middle-x white-background">
-                          <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <img src="../dist/assets/images/produto.png" alt="Produto" class="img-fluid mx-auto d-block">
-                          </div>
-                        </div>
-                
-                        <!-- Informações do produto -->
-                        <div class="position-absolute start-50 translate-middle-x info-product">
-                          <h5 class="fw-bold text-light font-name-product mb-sm-2">CAMISETA SANITY</h5>
-                          <div class="d-flex gap-1 font-discount">
-                            <p class="card-text fw-semibold text-light bg-primary px-1 px-sm-3 rounded-1 ">DESCONTO 50% OFF</p>
-                            <p class="text-light">DE <span class="text-decoration-line-through"><span class="fw-bold text-primary">R$</span class="fst-normal"> 80,00</span></p>
-                          </div>
-                          <p class="fw-bold fs-4 text-light"><span class="fs-6 text-primary">R$</span> 40,00</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
+              <div id="product-list" class="carousel-inner p-5"></div>
               <button
                 class="carousel-control-prev"
                 type="button"
@@ -422,5 +229,6 @@
       <p>Fourminds Tech ©</p>
     </footer>
     <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/dist/js/home/index.js"></script>
   </body>
 </html>
