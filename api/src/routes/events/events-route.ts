@@ -1,19 +1,23 @@
 import { Router } from "express";
 import { EventController } from "../../controllers/events/eventController";
-import { PrismaEventRepository } from "../../infra/repository/event-repository/prisma-event-repository";
+import { authenticateRequest } from "../../infra/middlewares/authenticateRequest";
+import multer from "multer";
 
-const eventGateway = new PrismaEventRepository
-const eventController = new EventController(eventGateway)
+const storage = multer.memoryStorage();
+const upload = multer({ storage }).single('image');
+
 
 export const eventRoutes = () => {
+
+    const eventController = new EventController();
 
     const routerEvent = Router();
 
     routerEvent.post("/events/", eventController.createEvent.bind(eventController));
     routerEvent.get("/events/", eventController.listEvents.bind(eventController));
     routerEvent.get("/events/:id", eventController.getEventById.bind(eventController));
-    routerEvent.put("/events/:id", eventController.updateEvent.bind(eventController));
-    routerEvent.delete("/events/:id", eventController.deleteEvent.bind(eventController));
+    routerEvent.put("/events/:id", authenticateRequest, upload ,eventController.updateEvent.bind(eventController));
+    routerEvent.delete("/events/:id", authenticateRequest ,eventController.deleteEvent.bind(eventController));
 
     return routerEvent;
 }

@@ -10,7 +10,7 @@ export class CreateEventUseCase extends BaseUsecase<any, EventProps> {
     async execute(input: any): Promise<EventProps> {
         this.validateInput(input);
 
-        const { name, location, date, schedule, price, ticket, status } = input;
+        const { name, location, date, schedule, price, ticket, status, image } = input;
 
         if (!name) throw new Error("O nome do evento é obrigatório.");
         if (!location) throw new Error("A localização do evento é obrigatória.");
@@ -19,6 +19,7 @@ export class CreateEventUseCase extends BaseUsecase<any, EventProps> {
         if (!schedule) throw new Error("O horário do evento é obrigatório.");
         if (!ticket) throw new Error("O ticket do evento é obrigatório.");
         if (status === undefined) throw new Error("O status do evento é obrigatório.");
+        if (!image) throw new Error("A imagem do evento é obrigatória."); 
 
         try {
             const event = await this.eventGateway.createEvent(input);

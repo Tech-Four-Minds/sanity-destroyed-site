@@ -1,18 +1,28 @@
 import { Response, Request } from "express";
-import { NewsGateway } from "../../domain/gateway/news.gateway";
+import { PrismaNewRepository } from "../../infra/repository/new-repository/prisma-news-repository";
+import multer from "multer";
+
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage }).single('image');
+
 
 export class NewsController {
-    private newsGateway: NewsGateway;
 
-    constructor(newsGateway: NewsGateway){
-        this.newsGateway = newsGateway
-    };
+    private newsGateway: PrismaNewRepository;
+
+    constructor() {
+        this.newsGateway = new PrismaNewRepository()
+    }
+    
 
      /**
      * @swagger
      * /news:
      *   post:
      *     summary: Cria uma nova notícia.
+     *     security:
+     *       - Auth: []
      *     description: Adiciona uma nova notícia ao banco de dados.
      *     tags:
      *       - Notícias
@@ -32,12 +42,19 @@ export class NewsController {
      */
 
     async createNews (req: Request, res: Response): Promise<void> {
-        const {name, date, description} = req.body;
+        upload(req, res, async (err: any) => {
+            if (err) {
+                return res.status(400).json({ error: "Erro no upload da imagem." });
+            }
+        const {name, date, description, image} = req.body;
+        const imageBuffer = req.file?.buffer;
+
         try {
             const news = await this.newsGateway.createNews({
                 name, 
                 date, 
-                description
+                description,
+                image: imageBuffer,
             });
             res.status(201).json(news)
         } catch (error) {
@@ -48,6 +65,7 @@ export class NewsController {
             }
             
         }
+        })
     };
 
     /**
@@ -72,18 +90,28 @@ export class NewsController {
      *         description: Erro interno no servidor.
      */
 
-    async listNews (req: Request, res: Response): Promise<void> {
+    async listNews(req: Request, res: Response): Promise<void> {
         try {
             const news = await this.newsGateway.listNews();
-            res.status(200).json(news);
-        }   catch (error) {
+    
+            // Iterando sobre um array de notícias
+            const newsWithBase64Images = news.map((newsItem) => ({
+                ...newsItem,
+                date: newsItem.date ? newsItem.date.toLocaleDateString('pt-BR') : null,
+                image: newsItem.image ? `data:image/;base64,${Buffer.from(newsItem.image).toString("base64")}` : null
+            }));
+
+    
+            res.status(200).json(newsWithBase64Images);
+        } catch (error) {
             if (error instanceof Error) {
                 res.status(400).json({ error: error.message });
             } else {
                 res.status(500).json({ error: "Erro interno no servidor." });
             }
         }
-    };
+    }
+    
 
     /**
      * @swagger
@@ -110,25 +138,33 @@ export class NewsController {
      */
 
     async getNewsById(req: Request, res: Response): Promise<void> {
-        const { id } = req.params;
+    const { id } = req.params;
 
-        try {
-            const news = await this.newsGateway.getNewsById(id);
-            if (news) {
-                res.status(200).json(news);
-            } else {
-                res.status(404).json({ error: "Notícia não encontrado" });
-            }
-        } catch (error) {
-            res.status(400).json({error: (error as Error).message});
+    try {
+        const news = await this.newsGateway.getNewsById(id);
+        if (news) {
+            const newsWithBase64Image = {
+                ...news,
+                date: news.date ? news.date.toLocaleDateString('pt-BR') : null,
+                imageSizeKB: news.image ? (news.image.length / 1024).toFixed(2) + " KB" : "0 KB",
+                image: news.image ? `data:image/;base64,${Buffer.from(news.image).toString("base64")}` : null
+            };
+            res.status(200).json(newsWithBase64Image);
+        } else {
+            res.status(404).json({ error: "Notícia não encontrada" });
         }
-    };
+    } catch (error) {
+        res.status(400).json({ error: (error as Error).message });
+    }
+}
 
     /**
      * @swagger
      * /news/{id}:
      *   put:
      *     summary: Atualiza uma notícia existente.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Notícias
      *     parameters:
@@ -154,28 +190,37 @@ export class NewsController {
      *         description: Erro interno no servidor.
      */
 
-    async updateNews (req: Request, res: Response): Promise<void> {
+    async updateNews(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         const data = req.body;
-
+        const imageBuffer = req.file?.buffer;
+    
+        const updatedData = {
+            ...data,
+            image: imageBuffer || data.image,  
+        };
+    
         try {
-            const news = await this.newsGateway.updateNews(id, data);
-            res.status(200).json(news);
-
-        }catch (error) {
+            const updatedNews = await this.newsGateway.updateNews(id, updatedData);
+            res.status(200).json(updatedNews);
+    
+        } catch (error) {
             if (error instanceof Error) {
                 res.status(400).json({ error: error.message });
             } else {
                 res.status(500).json({ error: "Erro interno no servidor." });
             }
         }
-    };
+    }
+    
 
     /**
      * @swagger
      * /news/{id}:
      *   delete:
      *     summary: Deleta uma notícia por ID.
+     *     security:
+     *       - Auth: []
      *     tags:
      *       - Notícias
      *     parameters:

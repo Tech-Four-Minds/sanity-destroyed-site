@@ -7,7 +7,7 @@ export type EventProps = {
     price: number;
     ticket?: string;
     status: boolean;
-    image?: string;
+    image?: Buffer;
 };
 
 export class Event {
@@ -21,23 +21,20 @@ export class Event {
         price: number,
         ticket?: string,
         status: boolean = true,
-        image?: string,
+        image?: Buffer,
         id?: string
     ): Event {
-        if (new Date(date) < new Date()) {
-            throw new Error("A data do evento não pode ter passado.");
-        }
-        return new Event({
+         return new Event({
             id: id || "" ,
             name,
             location,
-            date,
+            date ,
             schedule,
             price,
             ticket,
             status,
             image
-        })
+        });
     }
 
 
@@ -74,7 +71,7 @@ export class Event {
         return this.props.status;
     }
 
-    public get image(): string | undefined {
+    public get image(): Buffer | undefined {
         return this.props.image;
     }
 
@@ -100,15 +97,29 @@ export class Event {
     }
 
     public set date(date: Date) {
-        if (new Date(date) < new Date()) {
-            throw new Error("A data do evento não pode ter passado.");
-        }if (!(date instanceof Date)) {
-            throw new Error("Data inválida. Esperado uma instância de Date.");
-        }
-        if (isNaN(date.getTime())) {
+        if (!(date instanceof Date) || isNaN(date.getTime())) {
             throw new Error("Data inválida.");
         }
 
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); 
+    
+        const eventDate = new Date(date);
+        eventDate.setHours(0, 0, 0, 0); 
+
+        if (date && new Date(date) < new Date()) {
+            throw new Error("A data do evento não pode ter passado.");
+        }
+
+        if (date && isNaN(date.getTime())) {
+            throw new Error("Data inválida.");
+        }
+    
+        if (eventDate < today) {
+            throw new Error("A data do evento não pode ter passado.");
+        }
+
+    
         this.props.date = date;
     }
 
@@ -135,7 +146,7 @@ export class Event {
         this.props.ticket = ticket;
     }
 
-    public set image(value: string | undefined) {
+    public set image(value: Buffer | undefined) {
         this.props.image = value;
     }
     

@@ -22,18 +22,17 @@ export class PrismaEventRepository implements EventGateway {
             data: {
                 name: event.name,
                 location: event.location,
-                date: event.date,
+                date: event.date ?  new Date(event.date).toISOString() : new Date().toISOString(),
                 schedule: event.schedule,
                 price: event.price,
                 ticket: event.ticket || undefined, 
                 status: event.status,
-                image: event.image || undefined, 
+                image: event.image || undefined,  
             },
         });
 
         return this.mapPrismaEvent(createdEvent);
     }
-
     async listEvents(): Promise<EventProps[]> {
         const events = await prisma.event.findMany();
         return events.map(this.mapPrismaEvent);
@@ -50,18 +49,18 @@ export class PrismaEventRepository implements EventGateway {
         const event = await prisma.event.findUnique({
             where: { id },
         });
-
+    
         if (!event) throw new Error("Evento não encontrado");
-
+    
         const updatedEvent = Event.create( 
             data.name || event.name,
             data.location || event.location,
-            data.date || event.date,
+            data.date || event.date, 
             data.schedule || event.schedule,
             data.price || event.price,
-            data.ticket ?? event.ticket ?? undefined ,
+            data.ticket || event.ticket || undefined, 
             data.status !== undefined ? data.status : event.status,
-            data.image ?? event.image ?? undefined,
+            data.image as Buffer || event.image || undefined,
             event.id
         );
 

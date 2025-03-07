@@ -23,7 +23,7 @@ export class PrismaProductRepository implements ProductGateway {
         type: product.type,
         size: product.size,
         quantity: product.quantity,
-        image: product.image ?? undefined,  
+        image: product.image || undefined,  
       },
     });
 
@@ -59,7 +59,8 @@ export class PrismaProductRepository implements ProductGateway {
         type: data.type || product.type,
         size: data.size || product.size,
         quantity: data.quantity || product.quantity,
-        image: data.image ?? product.image ?? undefined,  
+        image: (data.image as Buffer) || product.image || undefined,
+
       });
       
 

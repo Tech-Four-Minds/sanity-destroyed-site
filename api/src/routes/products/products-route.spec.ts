@@ -11,7 +11,7 @@ describe("Testes de Integração - Rotas de Produtos", () => {
 
     it("Deve criar um produto com sucesso", async () => {
         const response = await request(app)
-            .post("/api/products/post")
+            .post("/api/products/")
             .send({
                 name: "Produto Teste",
                 price: 99.99,
@@ -27,7 +27,7 @@ describe("Testes de Integração - Rotas de Produtos", () => {
     });
 
     it("Deve listar todos os produtos", async () => {
-        const response = await request(app).get("/api/products/get");
+        const response = await request(app).get("/api/products/");
 
         expect(response.status).toBe(200);
         expect(Array.isArray(response.body)).toBe(true);
@@ -65,7 +65,7 @@ describe("Testes de Integração - Rotas de Produtos", () => {
 
         expect(response.status).toBe(400); 
     });
-
+    
     it("Deve deletar um produto existente", async () => {
         const response = await request(app).delete(`/api/products/${productId}`);
 
