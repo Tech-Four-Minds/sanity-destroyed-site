@@ -13,7 +13,7 @@ export const newsRoutes = () => {
 
     const routerNews = Router();
 
-    routerNews.post("/news/", authenticateRequest ,newsController.createNews.bind(newsController));
+    routerNews.post("/news/", newsController.createNews.bind(newsController));
     routerNews.get("/news/", newsController.listNews.bind(newsController));
     routerNews.get("/news/:id", newsController.getNewsById.bind(newsController));
     routerNews.put("/news/:id", authenticateRequest , upload, newsController.updateNews.bind(newsController));
